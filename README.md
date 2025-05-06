@@ -19,7 +19,7 @@ E.A. Chacin Ruiz, S. L. Carpenter, K. E. Swindle-Reilly, and A. N. Ford Versypt,
 
 * bilayer_numerical_diffn_paramest.m This file initializes the parameter estimation problem and calls the following code scripts to perform necessary functions.
 * FD_spheres_variable_diffusivity_two_spheres.m This file contains the finite difference discretization scheme for spheres.
-* simps.m This file performs Simpson's numerical integration.
+* simps.m This file performs Simpson's numerical integration. [Source](https://www.mathworks.com/matlabcentral/fileexchange/25754-simpson-s-rule-for-numerical-integration)
 * solve_cumul_drug_rel.m This file runs the forward problem for the average and best results for the parameter estimation.
 * solve_FD_spheres_variable_diffusivity.m This file solves the PDE for Fickian diffusion within a radially symmetric sphere.
 
