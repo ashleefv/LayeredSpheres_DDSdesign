@@ -40,12 +40,12 @@ xlRange = 'M3:M52';
 sim_error = xlsread(filename,sheet,xlRange);
 
 subplot(2,2,1)
-plot (sim_iteration,sim_error,'ko','LineWidth',4)
-yline(217.35,'--k')
+plot (sim_iteration,sim_error,'ko','LineWidth',1)
+yline(217.35,'--k','LineWidth',2)
 ylabel('Sum of squared errors','FontName','Arial','FontSize',12)
 xlabel('Completed multi-start run','FontName','Arial','FontSize',12)
 legend('Simulation','Threshold')
-axis([0,50,100,300])
+axis([0,50,200,250])
 
 %% COMSOL
 sheet = 2;
@@ -85,9 +85,9 @@ xlRange = 'M3:M52';
 sim_error = xlsread(filename,sheet,xlRange);
 
 subplot(2,2,2)
-plot (sim_iteration,sim_error,'ko','LineWidth',4)
-yline(217.35,'--k')
+plot (sim_iteration,sim_error,'ko','LineWidth',1)
+yline(217.35,'--k','LineWidth',2)
 ylabel('Sum of squared errors','FontName','Arial','FontSize',12)
 xlabel('Completed multi-start run','FontName','Arial','FontSize',12)
 legend('Simulation','Threshold')
-axis([0,50,100,300])
+axis([0,50,200,250])
