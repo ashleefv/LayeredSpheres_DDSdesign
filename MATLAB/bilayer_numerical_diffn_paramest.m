@@ -12,7 +12,7 @@ clc
 %% Initialize data for BSA from Berkland IntJPharm 2007 Data not normalized
 format long e
 use_stdv = 'no'; %Allows for the consideration of standard deviation. 'yes' for active, 'no' for inactive
-material = 1; %Allows for mono- or bi-layered device. '1' for chitosan-only, and '2' for Chitosan-PCL
+material = 2; %Allows for mono- or bi-layered device. '1' for chitosan-only, and '2' for Chitosan-PCL
 num_estim_param = 4; %For PCL-chitosan. '3' if fixing drug diffusion coefficient in chitosan. '4' if estimating all parameters
 
 %Reading and organizing experimental data
@@ -59,13 +59,15 @@ DD0pcl=5e-11; %cm^2/s. Used for PCL-chitosan.
 burst0 = 100; % %
 k0 = 10; % dimensionless
 
-n_restart = 50; %Number of initializations
+n_restart = 2; %Number of initializations
 
-%This will help making sure we have a fair distribution between 0.01-1 when
-%using rand function ahead
+%This will help making sure we have a fair distribution between different
+% orders of magnitude when using rand function ahead
 ll = 0.01; %Lower limit guess for parameter estimation
+ll2 = 0.00002; %Lower limit guess for parameter estimation of Dpcl
 ul = 1; %Upper limit guess for parameter estimation
 log_ll = log10(ll);
+log_ll2 = log10(ll2);
 log_ul = log10(ul);
 
 
@@ -121,9 +123,13 @@ elseif material == 2
     k = zeros(1,n_restart);
 
     guess = lhsdesign(n_restart,num_estim_param); %Applying latin hypercube sampling for initial guesses
-    for i=1:num_estim_param-1
+    for i=1:num_estim_param
         for j=1:n_restart
-            guess(j,i) = 10^(log_ll + (log_ul-log_ll) * guess(j,i));
+            if i == 2
+                guess(j,i) = 10^(log_ll2 + (log_ul-log_ll2) * guess(j,i));
+            else
+                guess(j,i) = 10^(log_ll + (log_ul-log_ll) * guess(j,i));
+            end
         end
     end
    
