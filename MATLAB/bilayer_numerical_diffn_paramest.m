@@ -59,7 +59,7 @@ DD0pcl=5e-11; %cm^2/s. Used for PCL-chitosan.
 burst0 = 100; % %
 k0 = 10; % dimensionless
 
-n_restart = 2; %Number of initializations
+n_restart = 100; %Number of initializations
 
 %This will help making sure we have a fair distribution between different
 % orders of magnitude when using rand function ahead
