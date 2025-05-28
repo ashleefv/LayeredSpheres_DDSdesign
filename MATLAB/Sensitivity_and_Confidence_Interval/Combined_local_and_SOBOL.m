@@ -1,9 +1,12 @@
-%% OAT calculations
+%% Local sensitivity calculations
 % Dchi = 1e-15 cm2/s, Dpcl=1e-12 cm2/s, b=10%, k=1
 parameters=categorical({'B', 'D_{Chi}', 'D_{PCL}', '\kappa'});
 %Results obtained from MATLAB
 y1 = [0.193177, 0.334039, 0.000883, 0.002286];
-%Plotting
+
+% Plotting
+figure(2)
+figname = 'figure2';
 subplot(2,3,1)
 bar(parameters,y1,'k')
 ylabel('$\left|N_{Q(28,p)}\right|$','Interpreter','latex','FontName','Arial','FontSize',12)
@@ -80,5 +83,16 @@ ylim([10e-8 10e-1])
 %Overall legend
 legend('First-order Sobol index', 'Total Sobol index','FontName','Arial','FontSize',10)
 h = legend('Location','northoutside', 'Orientation', 'horizontal');
-p = [0.5 0.02 0.03 0.03];
+p = [0.5 0.5 0.03 0.03];
 set(h,'Position', p,'Units', 'normalized');
+
+labelstring = {'a)', 'b)', 'c)','d)','e)','f)'};
+for v = 1:6
+    subplot(2,3,v)
+    hold on
+    text(-0.25, 1.1, labelstring(v)', 'Units', 'normalized', 'FontWeight', 'bold','FontSize', 12)
+end
+
+widthInches = 15;
+heightInches = 10;
+ScriptForExportingImages

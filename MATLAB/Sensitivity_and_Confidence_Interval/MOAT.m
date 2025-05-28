@@ -13,8 +13,9 @@ x = xlsread(file_name,sheet_num,xrange)';
 yrange = 'B2:B5';
 y = xlsread(file_name,sheet_num,yrange)';
 
-figure()
-subplot(1,3,1)
+figure(57) %Figure S7
+figname = 'figureS7';
+subplot(2,3,1)
 plot(x,y,'ko')
 xlabel('MOAT mean')
 ylabel('MOAT standard deviation')
@@ -41,7 +42,7 @@ x = xlsread(file_name,sheet_num,xrange)';
 yrange = 'B2:B5';
 y = xlsread(file_name,sheet_num,yrange)';
 
-subplot(1,3,2)
+subplot(2,3,2)
 plot(x,y,'ko')
 xlabel('MOAT mean')
 txt = '$D_{PCL}$';
@@ -67,7 +68,7 @@ x = xlsread(file_name,sheet_num,xrange)';
 yrange = 'B2:B5';
 y = xlsread(file_name,sheet_num,yrange)';
 
-subplot(1,3,3)
+subplot(2,3,3)
 plot(x,y,'ko')
 xlabel('MOAT mean')
 txt = '$B$';
@@ -79,3 +80,15 @@ text(1*x(3),0.95*y(3),txt,'interpreter','latex')
 txt = '$D_{Chi}$';
 text(60*x(4),3*y(4),txt,'interpreter','latex')
 axis([-0.05 0.5 -1e-4 0.0012])
+
+labelstring = {'a)', 'b)', 'c)'};
+for v = 1:3
+    subplot(2,3,v)
+    hold on
+    text(-0.25, 1.05, labelstring(v)', 'Units', 'normalized', 'FontWeight', 'bold','FontSize', 12)
+end
+
+
+widthInches = 15;
+heightInches = 10;
+ScriptForExportingImages
