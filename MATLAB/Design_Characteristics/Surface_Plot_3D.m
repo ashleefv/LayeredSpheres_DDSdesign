@@ -31,7 +31,7 @@ R2_bl = (12.7e-4)/2; %Chitosan + PCL radius baseline (cm). If R1=R2, then no PCL
 
 R1_sizes = 0.4:0.1:2; %Multiples of chitosan radius to try
 R2_thick = 0.5:0.5:10; %Multiples of PCL thickness to try
-timevector = 0:1:285; % time to study in days
+timevector = 0:1:185; % time to study in days
 loaded_drug = 1.03; %amount of drug loaded in mg
 cumulrel_threshold = 90; %threshold of cumulative release (%)
 relrate_threshold = 1.8; %threshold of release rate (micrograms/day)
@@ -213,7 +213,9 @@ if strcmp(plotting,'yes')
 
 
     % %%% Cumulative drug release
-    figure();
+    figure(7);
+    figname = 'figure7';
+    subplot(2,2,1)
     time_within_cumulrel = zeros();
     x1 = zeros();
     y1 = zeros();
@@ -232,13 +234,14 @@ if strcmp(plotting,'yes')
     end
     time_within_cumulrel(time_within_cumulrel==0) = NaN;
     surf(x1,y1,time_within_cumulrel)
-    xlabel("Multiplier to the baseline core radius $R_{core}$",'interpreter','latex','rotation', 20)
-    ylabel("Multiplier to the baseline shell thickness $\Delta R$",'interpreter','latex','rotation', -30)
-    zlabel("Days it takes to reach a cumulative drug release of 90%")
-    zticks([0 30 60 90 120 150 180 210 240 270])
+    xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','rotation', 14)
+    ylabel("$\Delta R$ baseline multiplier",'interpreter','latex','rotation', -25)
+    zlabel("Days to achieve 90% release")
+    zticks([0 30 60 90 120 150 180])
+    axis([0 2, 0 10, 30 180])
 
     %%%Drug release rate
-    fig = figure();
+    subplot(2,3,2)
     time_within_relrate = zeros(i,j);
     x2 = zeros(i,j);
     y2 = zeros(i,j);
@@ -253,17 +256,56 @@ if strcmp(plotting,'yes')
         end
     end
     surf(x2,y2,time_within_relrate)
-    xlabel("Multiplier to the baseline core radius $R_{core}$",'interpreter','latex','rotation', 20)
-    ylabel("Multiplier to the baseline shell thickness $\Delta R$",'interpreter','latex','rotation', -30)
-    zlabel("Days releasing more than 2\mug/day of drug")
-    zticks([0 30 60 90 120 150 180 210 240 270])
+    xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','rotation', 14)
+    ylabel("$\Delta R$ baseline multiplier",'interpreter','latex','rotation', -25)
+    zlabel("Days above 2\mug/day of drug release")
+    zticks([0 30 60 90 120 150 180])
+    axis([0 2, 0 10, 30 180])
 
-    figure()
+    subplot(2,3,3)
     surf(x1,y1,time_within_cumulrel)
     hold on
     surf(x2,y2,time_within_relrate)
-    xlabel("Multiplier to the baseline core radius $R_{core}$",'interpreter','latex')
-    ylabel("Multiplier to the baseline shell thickness $\Delta R$",'interpreter','latex')
-    zlabel('Days above drug release threshold or to reach cumulative release threshold')
-    zticks([0 30 60 90 120 150 180 210 240 270])
+    xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','rotation', 14)
+    ylabel("$\Delta R$ baseline multiplier",'interpreter','latex','rotation', -25)
+    zlabel("Days to achieve thresholds")
+    zticks([0 30 60 90 120 150 180])
+    axis([0 2, 0 10, 30 180])
+
+    subplot(2,3,4)
+    R1_numeric = str2double(R1_text);
+    R1_size_cumulrel = size(time_within_cumulrel);
+    R1_size_relrate = size(time_within_relrate);
+    plot(R1_numeric(1:R1_size_cumulrel(2)),time_within_cumulrel(1,:)','b-',R1_numeric(1:R1_size_relrate(2)),time_within_relrate(1,:)','b--','LineWidth',4)
+    axis([0.4 2, 30 180])
+    xticks([0.4 0.6 0.8 1 1.2 1.4 1.6 1.8 2])
+    yticks([0 30 60 90 120 150 180])
+    xlabel("$R_{core}$ baseline multiplier",'interpreter','latex')
+    ylabel("Days to achieve thresholds")
+    legend('Cumulative release','Release rate','FontName','Arial','FontSize',10,'Location','southeast')
+
+    subplot(2,3,5)
+    R1_numeric = str2double(R1_text);
+    R1_size_cumulrel = size(time_within_cumulrel);
+    R1_size_relrate = size(time_within_relrate);
+    plot(R1_numeric(1:R1_size_cumulrel(2)),time_within_cumulrel(end,:)','b-',R1_numeric(1:R1_size_relrate(2)),time_within_relrate(end,:)','b--','LineWidth',4)
+    axis([0.4 2, 30 180])
+    xticks([0.4 0.6 0.8 1 1.2 1.4 1.6 1.8 2])
+    yticks([0 30 60 90 120 150 180]) 
+    xlabel("$R_{core}$ baseline multiplier",'interpreter','latex')
+    ylabel("Days to achieve thresholds")
+    legend('Cumulative release','Release rate','FontName','Arial','FontSize',10,'Location','southeast')
+
+    labelstring = {'a)', 'b)', 'c)', 'd)','e)','f)'};
+    for v = 1:5
+        subplot(2,3,v)
+        hold on
+        text(-0.25, 1.1, labelstring(v)', 'Units', 'normalized', 'FontWeight', 'bold','FontSize', 12)
+    end
+    
+    widthInches = 15;
+    heightInches = 10;
+    ScriptForExportingImages
+
 end
+

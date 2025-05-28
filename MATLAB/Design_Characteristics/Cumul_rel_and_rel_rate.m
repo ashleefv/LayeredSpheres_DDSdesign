@@ -23,7 +23,8 @@ cuml_rel = "V3:V183";
 cuml_rel_rate_1_5 = xlsread(file_name,sheet_num,cuml_rel);
 
 %Cumulative release figure
-fig = figure();
+fig = figure(5);
+figname = 'figure5';
 threshold = 90; % %
 axisvector = [0 180 0 100];
 xtickvector = [0 30 60 90 120 150 180];
@@ -320,9 +321,13 @@ han = axes(fig, 'visible', 'off');
 han.XLabel.Visible = 'on';
 xlabel(han, 'Time (days)','FontName','Arial','FontSize',10);
 
-res=300;
+res=600;
 set(gcf,'paperunits','centimeters','PaperPosition',[0 0 32 18]);
 print('CumulRel.tiff','-dtiff',['-r' num2str(res)], '-vector'); % still need to crop some white space on the left
+
+widthInches = 30;
+heightInches = 20;
+ScriptForExportingImages
 %% Release rate
 % Constant PCL layer (0.5*1.25 um thickness), varying chitosan radius
 sheet_num = 1;
@@ -343,7 +348,8 @@ rel_rate = "W3:W183";
 rel_rate_1_5 = xlsread(file_name,sheet_num,rel_rate);
 
 % Release rate figure
-fig = figure();
+fig = figure(6);
+figname = 'figure6';
 threshold = 2; % micrograms/day
 tolerance = 0.1;
 axisvector = [0 180 1e-2 400];
@@ -650,6 +656,8 @@ han = axes(fig, 'visible', 'off');
 han.XLabel.Visible = 'on';
 xlabel(han, 'Time (days)','FontName','Arial','FontSize',10);
 
-res=300;
+res=600;
 set(gcf,'paperunits','centimeters','PaperPosition',[0 0 32 18]);
 print('RelRate.tiff','-dtiff',['-r' num2str(res)], '-vector'); % still need to crop some white space on the left
+
+ScriptForExportingImages
