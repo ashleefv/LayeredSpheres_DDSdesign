@@ -20,6 +20,8 @@ ode45_hp=xlsread('Concentration_comparison',1,'T4:T174');
 COMSOL_hp=xlsread('Concentration_comparison',1,'V4:V174');
 
 %% Plotting
+figure(52) %figureS2
+figname = 'figureS2';
 subplot(2,2,1)
 plot (t,ode45_r0,'r',t,COMSOL_r0,'--b','LineWidth',4)
 ylabel ('Concentration (a.u.)','FontName','Arial','FontSize',12)
@@ -44,3 +46,12 @@ plot (t,ode45_hp,'r',t,COMSOL_hp,'--b','LineWidth',4)
 xlabel('Time (days)','FontName','Arial','FontSize',12)
 legend('MATLAB','COMSOL','FontName','Arial','FontSize',10)
 xlim([0 180])
+
+labelstring = {'a)', 'b)', 'c)', 'd)'};
+for v = 1:4
+    subplot(2,2,v)
+    hold on
+    text(-0.25, 1.1, labelstring(v)', 'Units', 'normalized', 'FontWeight', 'bold','FontSize', 12)
+end
+
+ScriptForExportingImages
