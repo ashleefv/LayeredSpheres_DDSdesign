@@ -31,7 +31,7 @@ R2_bl = (12.7e-4)/2; %Chitosan + PCL radius baseline (cm). If R1=R2, then no PCL
 
 R1_sizes = 0.4:0.1:2; %Multiples of chitosan radius to try
 R2_thick = 0.5:0.5:10; %Multiples of PCL thickness to try
-timevector = 0:1:185; % time to study in days
+timevector = 0:1:200; % time to study in days
 loaded_drug = 1.03; %amount of drug loaded in mg
 cumulrel_threshold = 90; %threshold of cumulative release (%)
 relrate_threshold = 1.8; %threshold of release rate (micrograms/day)
@@ -215,7 +215,7 @@ if strcmp(plotting,'yes')
     % %%% Cumulative drug release
     figure(7);
     figname = 'figure7';
-    subplot(2,2,1)
+    subplot(2,3,1)
     time_within_cumulrel = zeros();
     x1 = zeros();
     y1 = zeros();
