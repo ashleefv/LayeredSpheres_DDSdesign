@@ -276,36 +276,38 @@ if strcmp(plotting,'yes')
     R1_numeric = str2double(R1_text);
     R1_size_cumulrel = size(time_within_cumulrel);
     R1_size_relrate = size(time_within_relrate);
-    plot(R1_numeric(1:R1_size_cumulrel(2)),time_within_cumulrel(1,:)','b-',R1_numeric(1:R1_size_relrate(2)),time_within_relrate(1,:)','b--','LineWidth',4)
+    plot(R1_numeric(1:R1_size_cumulrel(2)),time_within_cumulrel(1,:)','-',R1_numeric(1:R1_size_relrate(2)),time_within_relrate(1,:)','--','linewidth',2)
+
     axis([0.4 2, 30 180])
     xticks([0.4 0.6 0.8 1 1.2 1.4 1.6 1.8 2])
     yticks([0 30 60 90 120 150 180])
     xlabel("$R_{core}$ baseline multiplier",'interpreter','latex')
     ylabel("Days to achieve thresholds")
-    legend('Cumulative release','Release rate','FontName','Arial','FontSize',10,'Location','southeast')
+    legend('Cumulative release','Release rate','FontName','Arial','fontsize',8,'Location','southeast')
 
     subplot(2,3,5)
     R1_numeric = str2double(R1_text);
     R1_size_cumulrel = size(time_within_cumulrel);
     R1_size_relrate = size(time_within_relrate);
-    plot(R1_numeric(1:R1_size_cumulrel(2)),time_within_cumulrel(end,:)','b-',R1_numeric(1:R1_size_relrate(2)),time_within_relrate(end,:)','b--','LineWidth',4)
+    plot(R1_numeric(1:R1_size_cumulrel(2)),time_within_cumulrel(end,:)','-',R1_numeric(1:R1_size_relrate(2)),time_within_relrate(end,:)','--','linewidth',2)
     axis([0.4 2, 30 180])
     xticks([0.4 0.6 0.8 1 1.2 1.4 1.6 1.8 2])
     yticks([0 30 60 90 120 150 180]) 
     xlabel("$R_{core}$ baseline multiplier",'interpreter','latex')
     ylabel("Days to achieve thresholds")
-    legend('Cumulative release','Release rate','FontName','Arial','FontSize',10,'Location','southeast')
+    legend('Cumulative release','Release rate','FontName','Arial','fontsize',8,'Location','southeast')
 
     labelstring = {'a)', 'b)', 'c)', 'd)','e)','f)'};
     for v = 1:5
         subplot(2,3,v)
         hold on
-        text(-0.25, 1.1, labelstring(v)', 'Units', 'normalized', 'FontWeight', 'bold','FontSize', 12)
+            text(-0.225, 1.1, labelstring(v)', 'Units', 'normalized', 'FontWeight', 'bold','FontSize',8)
+            set(gca,'FontName','Arial','FontSize',8)
     end
     
-    widthInches = 15;
-    heightInches = 10;
-    ScriptForExportingImages
+widthInches = 6.5;
+heightInches = 5;
+run('../ScriptForExportingImages.m')
 
 end
 

@@ -5,6 +5,10 @@ run('Sensitivity_and_Confidence_Interval/Combined_local_and_SOBOL.m')
 run('Parameter_Estimation_Results/Plots_BSA_50_IC.m')
 %figure 4
 run('Parameter_Estimation_Results/Plots_Bev_50_IC.m')
+%figures 5 and 6
+run('Design_Characteristics/Cumul_rel_and_rel_rate.m')
+%figure 7 % This one regenerates the results and takes a long time
+% run('Design_Characteristics/Surface_Plot_3D.m')
 
 %figure S2
 run('Concentration_Comparisons/Plot_concentration_profiles.m')
