@@ -215,7 +215,7 @@ if strcmp(plotting,'yes')
     % %%% Cumulative drug release
     figure(7);
     figname = 'figure7';
-    subplot(2,3,1)
+    subplot(2,2,1)
     time_within_cumulrel = zeros();
     x1 = zeros();
     y1 = zeros();
@@ -241,7 +241,7 @@ if strcmp(plotting,'yes')
     axis([0 2, 0 10, 30 180])
 
     %%%Drug release rate
-    subplot(2,3,2)
+    subplot(2,2,2)
     time_within_relrate = zeros(i,j);
     x2 = zeros(i,j);
     y2 = zeros(i,j);
@@ -262,7 +262,7 @@ if strcmp(plotting,'yes')
     zticks([0 30 60 90 120 150 180])
     axis([0 2, 0 10, 30 180])
 
-    subplot(2,3,3)
+    subplot(2,2,3)
     surf(x1,y1,time_within_cumulrel)
     hold on
     surf(x2,y2,time_within_relrate)
@@ -272,11 +272,11 @@ if strcmp(plotting,'yes')
     zticks([0 30 60 90 120 150 180])
     axis([0 2, 0 10, 30 180])
 
-    subplot(2,3,4)
+    subplot(2,2,4)
     R1_numeric = str2double(R1_text);
     R1_size_cumulrel = size(time_within_cumulrel);
     R1_size_relrate = size(time_within_relrate);
-    plot(R1_numeric(1:R1_size_cumulrel(2)),time_within_cumulrel(1,:)','b-',R1_numeric(1:R1_size_relrate(2)),time_within_relrate(1,:)','b--','LineWidth',4)
+    plot(R1_numeric(1:R1_size_cumulrel(2)),time_within_cumulrel(2,:)','b--',R1_numeric(1:R1_size_relrate(2)),time_within_relrate(2,:)','b-','LineWidth',4)
     axis([0.4 2, 30 180])
     xticks([0.4 0.6 0.8 1 1.2 1.4 1.6 1.8 2])
     yticks([0 30 60 90 120 150 180])
@@ -284,28 +284,13 @@ if strcmp(plotting,'yes')
     ylabel("Days to achieve thresholds")
     legend('Cumulative release','Release rate','FontName','Arial','FontSize',10,'Location','southeast')
 
-    subplot(2,3,5)
-    R1_numeric = str2double(R1_text);
-    R1_size_cumulrel = size(time_within_cumulrel);
-    R1_size_relrate = size(time_within_relrate);
-    plot(R1_numeric(1:R1_size_cumulrel(2)),time_within_cumulrel(end,:)','b-',R1_numeric(1:R1_size_relrate(2)),time_within_relrate(end,:)','b--','LineWidth',4)
-    axis([0.4 2, 30 180])
-    xticks([0.4 0.6 0.8 1 1.2 1.4 1.6 1.8 2])
-    yticks([0 30 60 90 120 150 180]) 
-    xlabel("$R_{core}$ baseline multiplier",'interpreter','latex')
-    ylabel("Days to achieve thresholds")
-    legend('Cumulative release','Release rate','FontName','Arial','FontSize',10,'Location','southeast')
 
-    labelstring = {'a)', 'b)', 'c)', 'd)','e)','f)'};
-    for v = 1:5
-        subplot(2,3,v)
+    labelstring = {'a)', 'b)', 'c)', 'd)'};
+    for v = 1:4
+        subplot(2,2,v)
         hold on
         text(-0.25, 1.1, labelstring(v)', 'Units', 'normalized', 'FontWeight', 'bold','FontSize', 12)
     end
-    
-    widthInches = 15;
-    heightInches = 10;
-    ScriptForExportingImages
 
 end
 
