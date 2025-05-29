@@ -35,9 +35,9 @@ timevector_plot = timevector/86400; %scaling to days
     end
     time_within_cumulrel(time_within_cumulrel==0) = NaN;
     surf(x1,y1,time_within_cumulrel)
-    xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','rotation', 14)
-    ylabel("$\Delta R$ baseline multiplier",'interpreter','latex','rotation', -25)
-    zlabel("Days to achieve 90% release")
+    xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','rotation', 14,'FontSize', 8)
+    ylabel("$\Delta R$ baseline multiplier",'interpreter','latex','rotation', -25,'FontSize', 8)
+    zlabel("Days to achieve 90% release",'FontSize', 8)
     zticks([0 30 60 90 120 150 180])
     axis([0 2, 0 10, 30 180])
 
@@ -57,9 +57,9 @@ timevector_plot = timevector/86400; %scaling to days
         end
     end
     surf(x2,y2,time_within_relrate)
-    xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','rotation', 14)
-    ylabel("$\Delta R$ baseline multiplier",'interpreter','latex','rotation', -25)
-    zlabel("Days above 2\mug/day of drug release")
+    xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','rotation', 14,'FontSize', 8)
+    ylabel("$\Delta R$ baseline multiplier",'interpreter','latex','rotation', -25,'FontSize', 8)
+    zlabel("Days above 2\mug/day of drug release",'FontSize', 8)
     zticks([0 30 60 90 120 150 180])
     axis([0 2, 0 10, 30 180])
 
@@ -67,33 +67,38 @@ timevector_plot = timevector/86400; %scaling to days
     surf(x1,y1,time_within_cumulrel)
     hold on
     surf(x2,y2,time_within_relrate)
-    xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','rotation', 14)
-    ylabel("$\Delta R$ baseline multiplier",'interpreter','latex','rotation', -25)
-    zlabel("Days to achieve thresholds")
+    xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','rotation', 14,'FontSize', 8)
+    ylabel("$\Delta R$ baseline multiplier",'interpreter','latex','rotation', -25,'FontSize', 8)
+    zlabel("Days to achieve thresholds",'FontSize', 8)
     zticks([0 30 60 90 120 150 180])
     axis([0 2, 0 10, 30 180])
 
     subplot(2,2,4)
+    hold on
+    set(gca,'ColorOrderIndex',3)
+    co = get(gca, 'ColorOrder'); % Get the default color order
+    color6 = co(6, :);
     R1_numeric = str2double(R1_text);
     R1_size_cumulrel = size(time_within_cumulrel);
     R1_size_relrate = size(time_within_relrate);
-    plot(R1_numeric(1:R1_size_cumulrel(2)),time_within_cumulrel(2,:)','b--',R1_numeric(1:R1_size_relrate(2)),time_within_relrate(2,:)','b-','LineWidth',4)
+    plot(R1_numeric(1:R1_size_cumulrel(2)),time_within_cumulrel(2,:)','--','Color',color6,'LineWidth',2)
+    plot(R1_numeric(1:R1_size_relrate(2)),time_within_relrate(2,:)','-','Color',color6,'LineWidth',2)
     axis([0.4 2, 30 180])
     xticks([0.4 0.6 0.8 1 1.2 1.4 1.6 1.8 2])
     yticks([0 30 60 90 120 150 180])
-    xlabel("$R_{core}$ baseline multiplier",'interpreter','latex')
-    ylabel("Days to achieve thresholds")
-    legend('Cumulative release','Release rate','FontName','Arial','FontSize',10,'Location','southeast')
-
+    xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','FontSize', 8)
+    ylabel("Days to achieve thresholds",'FontSize', 8)
+    legend('Cumulative release','Release rate','FontName','Arial','FontSize',8,'Location','southeast')
+    hold off
 
     labelstring = {'a)', 'b)', 'c)', 'd)'};
     for v = 1:4
         subplot(2,2,v)
         hold on
-        text(-0.25, 1.1, labelstring(v)', 'Units', 'normalized', 'FontWeight', 'bold','FontSize', 12)
+        text(-0.25, 1.1, labelstring(v)', 'Units', 'normalized', 'FontWeight', 'bold','FontSize', 8)
     end
     
-widthInches = 5;
+widthInches = 6.5;
 heightInches = 5;
 run('../ScriptForExportingImages.m')
 
