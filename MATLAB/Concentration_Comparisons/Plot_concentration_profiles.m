@@ -23,35 +23,57 @@ COMSOL_hp=xlsread('Concentration_comparison',1,'V4:V174');
 figure(52) %figureS2
 figname = 'figureS2';
 subplot(2,2,1)
-plot (t,ode45_r0,'r',t,COMSOL_r0,'--b','LineWidth',4)
-ylabel ('Concentration (a.u.)','FontName','Arial','FontSize',12)
-legend('MATLAB','COMSOL','FontName','Arial','FontSize',10)
+set(gca,'ColorOrderIndex',6)
+co = get(gca, 'ColorOrder'); % Get the default color order
+ 
+color6 = co(6, :);  
+color7 = co(7, :); 
+hold on
+plot(t,ode45_r0,'-','Color',color7,'LineWidth',2)
+plot(t,COMSOL_r0,'--','Color',color6,'LineWidth',2)
+xlabel('Time (days)','FontName','Arial','fontsize',8)
+ylabel ('Concentration (a.u.)','FontName','Arial','fontsize',8)
+legend('MATLAB','COMSOL','FontName','Arial','fontsize',8)
 xlim([0 180])
 
 subplot(2,2,2)
-plot (t,ode45_hc,'r',t,COMSOL_hc,'--b','LineWidth',4)
-legend('MATLAB','COMSOL','FontName','Arial','FontSize',10)
+hold on
+plot (t,ode45_hc,'-','Color',color7,'LineWidth',2)
+plot (t,COMSOL_hc,'--','Color',color6,'LineWidth',2)
+xlabel('Time (days)','FontName','Arial','fontsize',8)
+ylabel ('Concentration (a.u.)','FontName','Arial','fontsize',8)
+
+legend('MATLAB','COMSOL','FontName','Arial','fontsize',8)
 xlim([0 180])
 ylim([0 1])
 
 subplot(2,2,3)
-plot (t,ode45_in,'r',t,COMSOL_in,'--b','LineWidth',4)
-xlabel('Time (days)','FontName','Arial','FontSize',12)
-ylabel ('Concentration (a.u.)','FontName','Arial','FontSize',12)
-legend('MATLAB','COMSOL','FontName','Arial','FontSize',10)
+hold on
+plot (t,ode45_in,'-','Color',color7,'LineWidth',2)
+plot(t,COMSOL_in,'--','Color',color6,'LineWidth',2)
+xlabel('Time (days)','FontName','Arial','fontsize',8)
+ylabel ('Concentration (a.u.)','FontName','Arial','fontsize',8)
+legend('MATLAB','COMSOL','FontName','Arial','fontsize',8)
 xlim([0 180])
 
 subplot(2,2,4)
-plot (t,ode45_hp,'r',t,COMSOL_hp,'--b','LineWidth',4)
-xlabel('Time (days)','FontName','Arial','FontSize',12)
-legend('MATLAB','COMSOL','FontName','Arial','FontSize',10)
+hold on
+plot (t,ode45_hp,'-','Color',color7,'LineWidth',2)
+plot(t,COMSOL_hp,'--','Color',color6,'LineWidth',2)
+xlabel('Time (days)','FontName','Arial','fontsize',8)
+ylabel ('Concentration (a.u.)','FontName','Arial','fontsize',8)
+
+legend('MATLAB','COMSOL','FontName','Arial','fontsize',8)
 xlim([0 180])
 
 labelstring = {'a)', 'b)', 'c)', 'd)'};
 for v = 1:4
     subplot(2,2,v)
     hold on
-    text(-0.25, 1.1, labelstring(v)', 'Units', 'normalized', 'FontWeight', 'bold','FontSize', 12)
+    text(-0.225, 1.1, labelstring(v)', 'Units', 'normalized', 'FontWeight', 'bold','FontSize',8)
+     set(gca,'FontName','Arial','FontSize',8)
 end
 
-ScriptForExportingImages
+widthInches = 5;
+heightInches = 5;
+run('../ScriptForExportingImages.m')

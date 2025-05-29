@@ -25,13 +25,14 @@ exp_stdv = xlsread(filename,sheet,xlRange);
 figure(55) %Figure S5
 figname = 'figureS5';
 subplot(2,2,3)
-errorbar (exp_time,exp_rel,exp_stdv,'ko','LineWidth',3)
+errorbar (exp_time,exp_rel,exp_stdv,'ko')
 hold on
-plot (sim_time,sim_average,'b',sim_time,sim_best,'r--','LineWidth',4)
-ylabel('Cumulative drug release (%)','FontName','Arial','FontSize',12)
-xlabel('Time (days)','FontName','Arial','FontSize',12)
-legend ('Jiang et al. (2020)', 'Average MATLAB model', 'Best MATLAB model','FontName','Arial','FontSize',10,'Location','southeast')
-axis([0,170,0,120])
+set(gca,'ColorOrderIndex',3)
+plot (sim_time,sim_average,'-',sim_time,sim_best,'--','LineWidth',2)
+ylabel('Cumulative drug release (%)','FontName','Arial','FontSize',8)
+xlabel('Time (days)','FontName','Arial','FontSize',8)
+legend ('Jiang et al. (2020)', 'Average MATLAB', 'Best MATLAB','FontName','Arial','FontSize',8,'Location','southeast')
+axis([0,180,0,120])
 hold off
 
 
@@ -44,8 +45,8 @@ sim_error = xlsread(filename,sheet,xlRange);
 subplot(2,2,1)
 plot (sim_iteration,sim_error,'ko','LineWidth',1)
 yline(457.04,'--k','LineWidth',2)
-ylabel('Sum of squared errors','FontName','Arial','FontSize',12)
-xlabel('Completed multi-start run','FontName','Arial','FontSize',12)
+ylabel('Sum of squared errors','FontName','Arial','FontSize',8)
+xlabel('Completed multi-start run','FontName','Arial','FontSize',8)
 legend('Simulation','Threshold','Location','northwest')
 axis([0,100,420,600])
 
@@ -70,13 +71,14 @@ xlRange = 'AA3:AA13';
 exp_stdv = xlsread(filename,sheet,xlRange);
 
 subplot(2,2,4)
-errorbar (exp_time,exp_rel,exp_stdv,'ko','LineWidth',3)
+errorbar (exp_time,exp_rel,exp_stdv,'ko')
 hold on
-plot (sim_time,sim_average,'b',sim_time,sim_best,'r--','LineWidth',4)
-ylabel('Cumulative drug release (%)','FontName','Arial','FontSize',12)
-xlabel('Time (days)','FontName','Arial','FontSize',12)
-legend ('Jiang et al. (2020)', 'Average COMSOL model', 'Best COMSOL model','FontName','Arial','FontSize',10,'Location','southeast')
-axis([0,170,0,120])
+set(gca,'ColorOrderIndex',3)
+plot (sim_time,sim_average,'-',sim_time,sim_best,'--','LineWidth',2)
+ylabel('Cumulative drug release (%)','FontName','Arial','FontSize',8)
+xlabel('Time (days)','FontName','Arial','FontSize',8)
+legend ('Jiang et al. (2020)', 'Average COMSOL', 'Best COMSOL','FontName','Arial','FontSize',8,'Location','southeast')
+axis([0,180,0,120])
 hold off
 
 
@@ -89,8 +91,8 @@ sim_error = xlsread(filename,sheet,xlRange);
 subplot(2,2,2)
 plot (sim_iteration,sim_error,'ko','LineWidth',1)
 yline(457.04,'--k','LineWidth',2)
-ylabel('Sum of squared errors','FontName','Arial','FontSize',12)
-xlabel('Completed multi-start run','FontName','Arial','FontSize',12)
+ylabel('Sum of squared errors','FontName','Arial','FontSize',8)
+xlabel('Completed multi-start run','FontName','Arial','FontSize',8)
 legend('Simulation','Threshold','Location','northwest')
 axis([0,100,420,600])
 
@@ -98,7 +100,10 @@ labelstring = {'a)', 'b)', 'c)', 'd)'};
 for v = 1:4
     subplot(2,2,v)
     hold on
-    text(-0.25, 1.1, labelstring(v)', 'Units', 'normalized', 'FontWeight', 'bold','FontSize', 12)
+    text(-0.225, 1.1, labelstring(v)', 'Units', 'normalized', 'FontWeight', 'bold','FontSize',8)
+    set(gca,'FontName','Arial','FontSize',8)
 end
 
-ScriptForExportingImages
+widthInches = 5;
+heightInches = 5;
+run('../ScriptForExportingImages.m')

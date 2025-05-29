@@ -86,7 +86,7 @@ labelstring = {'a)', 'b)', 'c)'};
 for v = 1:3
     subplot(2,3,v)
     hold on
-    text(-0.25, 1.05, labelstring(v)', 'Units', 'normalized', 'FontWeight', 'bold','FontSize',8)
+    text(-0.225, 1.1, labelstring(v)', 'Units', 'normalized', 'FontWeight', 'bold','FontSize',8)
     set(gca,'FontName','Arial','FontSize',8)
 end
 

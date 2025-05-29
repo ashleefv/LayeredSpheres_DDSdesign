@@ -1,4 +1,4 @@
-close all
+figure(51)%Figure S1
 
 set(0, 'defaultTextInterpreter', 'latex'); % Set default interpreter to LaTeX
 set(0, 'DefaultTextFontName', 'CMU Serif'); % Set default text font to Computer Modern
@@ -63,11 +63,15 @@ set(gca, 'xtick', []); % Remove y-axis ticks
 set(gca, 'Box', 'on', 'XColor', 'w', 'YColor', 'w'); %remove box border
 
 hold off
+fig =gcf;
 
-
-res=600;
-exportgraphics(gca, 'NodeFigure.png', 'ContentType', 'vector','Resolution',res); % Save as PNG with vector content
+% res=600;
+% exportgraphics(gca, 'NodeFigure.png', 'ContentType', 'vector','Resolution',res); % Save as PNG with vector content
 
 %
 %set(gcf,'paperunits','inches','PaperPosition',[0 0 5 0.75]);
 %print('NodeFigure.png','-dpng',['-r' num2str(res)], '-vector');
+
+figname = 'figureS1';
+exportgraphics(fig,[figname, '.tiff'],'Resolution',600)
+exportgraphics(fig,[figname, '.pdf'],'Resolution',600)

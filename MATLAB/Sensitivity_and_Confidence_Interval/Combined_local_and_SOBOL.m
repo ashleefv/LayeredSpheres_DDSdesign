@@ -92,6 +92,7 @@ for v = 1:6
     subplot(2,3,v)
     hold on
     text(-0.225, 1.1, labelstring(v)', 'Units', 'normalized', 'FontWeight', 'bold','FontSize',8)
+     set(gca,'FontName','Arial','FontSize',8)
 end
 
 widthInches = 6.5;
