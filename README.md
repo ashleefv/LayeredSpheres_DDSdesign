@@ -22,34 +22,33 @@ E.A. Chacin Ruiz, S. L. Carpenter, K. E. Swindle-Reilly, and A. N. Ford Versypt,
 * solve_cumul_drug_rel.m This file runs the forward problem for the average and best results for the parameter estimation.
 * solve_FD_spheres_variable_diffusivity.m This file solves the PDE for Fickian diffusion within a radially symmetric sphere.
 * CreateNodeFigure.m creates Figure S1
+* ScriptForExportingImages.m Converts and saves MATLAB plots to .pdf and .tiff, for the specified width and height size in inches.
 * two_spheres_data_form1_PCL_and_Chitosan.mat This data file contains the data for the experiments involving drug release from chitosan microparticles. A mat file must be loaded to perform the parameter estimation.
 * two_spheres_data_form2_PCL_and_Chitosan.mat This data file contains the data for the experiments involving drug release from PCL-chitosan microparticles. A mat file must be loaded to perform the parameter estimation.
 
 ### Concentration_Comparisons Folder Scripts and Data
 * Plot_concentration_profiles.m This script reads the information from the datasheet and makes a figure composed of four concentration subplots. Creates Figure S2.
 * Concentration_comparison.xlsx This datasheet contains the concentration vs time data at four different microparticle position. At the center, at the middle of the core, at the interface, and at the middle of the shell.
-* ScriptForExportingImages.m Converts and saves MATLAB plots to .pdf and .tiff, for the specified width and height size in inches.
 
 ### Design_Characteristics Folder Scripts and Data
+* 3D_Surface_data.mat This .mat file contains the data obtained from Surface_Plot_3D.m.
 * Bilayered_MPs_Prediction.xlsx This datasheet contains the cumulative drug release and drug release rate vs time data for the different core-shell designs.
 * Cumul_rel_and_rel_rate.m This script reads the information from Bilayered_MPs_Prediction.xlsx and makes two 6x4 figures with microparticles of different sizes. One figure shows the cumulative drug release and the other the drug release rate. Creates Figure 5 and Figure 6.
 * FD_spheres_variable_diffusivity_two_spheres.m This file contains the finite difference discretization scheme for spheres.
 * MPs_release_6_months.xlsx This datasheet contains the experimental data for cumulative drug release with time, and its standard deviation.
 * Multiple_Designs_Output.mlx This script allows to define a set of chitosan and PCL radii to test and the output is two mxn figures with microparticles of the different sizes chosen. One figure shows the cumulative drug release and the other the drug release rate.
 * plotfill.m This scripts serves as a function to color the area that is within a predefined threshold.
+* Plot_3D_Surface_Results.m This script creates Figure 7.
 * simps.m This file performs Simpson's numerical integration. [Source](https://www.mathworks.com/matlabcentral/fileexchange/25754-simpson-s-rule-for-numerical-integration)
-* ScriptForExportingImages.m Converts and saves MATLAB plots to .pdf and .tiff, for the specified width and height size in inches.
 * Surface_Plot_3D.m The output from this script are 3 3D surface plots where one of the axis represents chitosan radii, another one PCL radii, and the last one depends on the plot. One plot is for days it takes to release a certain drug threshold, one plot is for days releasing a determined amount of drug, and the final plot is the intersection between the previous two plots.
 
 ### Diffusion_Boundaries Folder Scripts
 * LowerAndUpperLimitsForDiffusion.m This script plots a figure showing the experimental data for BSA and Bevacizumab from Jiang et al. (2020), and the cumulative release curves assuming the same diffusion coefficients in both layers. Creates Figure S3.
-* ScriptForExportingImages.m Converts and saves MATLAB plots to .pdf and .tiff, for the specified width and height size in inches.
 
 ### Diffusion_Regimes Folder Scripts and Data
 * balanced_diffusion.mat Contains the concentration matrix (at different times and positions) for the case of DChi = DPCL.
 * core_limited_diffusion.mat Contains the concentration matrix (at different times and positions) for the case of DChi << DPCL.
 * Plot_Diffusion_Regimes.m This script plots the concentration profile with respect to position, at different time points, for the three regimes. Creates Figure S6.
-* ScriptForExportingImages.m Converts and saves MATLAB plots to .pdf and .tiff, for the specified width and height size in inches.
 * shell_limited_diffusion.mat Contains the concentration matrix (at different times and positions) for the case of DChi >> DPCL.
 
 ### Parameter_Estimation_Results Folder Scripts and Data
@@ -59,7 +58,6 @@ E.A. Chacin Ruiz, S. L. Carpenter, K. E. Swindle-Reilly, and A. N. Ford Versypt,
 * Plots_Bev_50_IC.m This script reads the final parameter estimation results for bevacizumab from InitialGuesses_50_Simulations.xlsx and the output is a 2x2 plot comparing average and best results for COMSOL and MATLAB, and the error values obtained. Creates Figure 4.
 * Plots_BSA_100_IC.m This script reads the preliminary parameter estimation results for bevacizumab from InitialGuesses_100_Simulations.xlsx and the output is a 2x2 plot comparing average and best results for COMSOL and MATLAB, and the error values obtained. Creates Figure S4.
 * Plots_BSA_50_IC.m This script reads the final parameter estimation results for BSA from InitialGuesses_50_Simulations.xlsx and the output is a 2x2 plot comparing average and best results for COMSOL and MATLAB, and the error values obtained. Creates Figure 3.
-* ScriptForExportingImages.m Converts and saves MATLAB plots to .pdf and .tiff, for the specified width and height size in inches.
 
 ### Sensitivity_and_Confidence_Interval Folder Scripts and Data
 * Combined_local_and_SOBOL.m This file plots a 3x2 figure where the top row is composed of local sensitivity analysis obtained from MATLAB and the bottom row is composed of SOBOL indices obtained from COMSOL. Creates Figure 2.
@@ -69,7 +67,6 @@ E.A. Chacin Ruiz, S. L. Carpenter, K. E. Swindle-Reilly, and A. N. Ford Versypt,
 * MOAT.m This script is used to plot the Morris one-at-a-time results obtained from COMSOL. Creates Figure S7.
 * MOAT_Info_COMSOL.xlsx This datasheet contains the COMSOL results of the MOAT mean and MOAT standard deviation for the parameters under different drug release regimens.
 * MPs_release_6_months.xlsx This datasheet contains the experimental data for cumulative drug release with time, and its standard deviation.
-* ScriptForExportingImages.m Converts and saves MATLAB plots to .pdf and .tiff, for the specified width and height size in inches.
 * simps.m This file performs Simpson's numerical integration. [Source](https://www.mathworks.com/matlabcentral/fileexchange/25754-simpson-s-rule-for-numerical-integration)
 * solve_FD_spheres_variable_diffusivity.m This file solves the PDE for Fickian diffusion within a radially symmetric sphere.
 
