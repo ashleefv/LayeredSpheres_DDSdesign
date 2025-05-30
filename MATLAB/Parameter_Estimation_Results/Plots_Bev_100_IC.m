@@ -25,13 +25,17 @@ exp_stdv = xlsread(filename,sheet,xlRange);
 figure(55) %Figure S5
 figname = 'figureS5';
 subplot(2,2,3)
-errorbar (exp_time,exp_rel,exp_stdv,'ko')
+
 hold on
-set(gca,'ColorOrderIndex',3)
-plot (sim_time,sim_average,'-',sim_time,sim_best,'--','LineWidth',2)
+co = orderedcolors("gem");
+    color3 = co(3, :);
+    color4 = co(4,:);
+plot (sim_time,sim_average,'-','color',color4,'LineWidth',2)
+plot(sim_time,sim_best,'--','color',color3,'LineWidth',2)
+errorbar (exp_time,exp_rel,exp_stdv,'ko')
 ylabel('Cumulative drug release (%)','FontName','Arial','FontSize',8)
 xlabel('Time (days)','FontName','Arial','FontSize',8)
-legend ('Jiang et al. (2020)', 'Average MATLAB', 'Best MATLAB','FontName','Arial','FontSize',8,'Location','southeast')
+legend ( 'Average MATLAB', 'Best MATLAB','Jiang et al. (2020)','FontName','Arial','FontSize',8,'Location','southeast')
 axis([0,180,0,120])
 hold off
 
@@ -43,7 +47,7 @@ xlRange = 'P3:P102';
 sim_error = xlsread(filename,sheet,xlRange);
 
 subplot(2,2,1)
-plot (sim_iteration,sim_error,'ko','LineWidth',1)
+plot (sim_iteration,sim_error,'k.')
 yline(457.04,'--k','LineWidth',2)
 ylabel('Sum of squared errors','FontName','Arial','FontSize',8)
 xlabel('Completed multi-start run','FontName','Arial','FontSize',8)
@@ -71,13 +75,17 @@ xlRange = 'AA3:AA13';
 exp_stdv = xlsread(filename,sheet,xlRange);
 
 subplot(2,2,4)
-errorbar (exp_time,exp_rel,exp_stdv,'ko')
+
 hold on
-set(gca,'ColorOrderIndex',3)
-plot (sim_time,sim_average,'-',sim_time,sim_best,'--','LineWidth',2)
+co = orderedcolors("gem");
+    color3 = co(3, :);
+    color4 = co(4,:);
+plot (sim_time,sim_average,'-','color',color4,'LineWidth',2)
+plot(sim_time,sim_best,'--','color',color3,'LineWidth',2)
+errorbar (exp_time,exp_rel,exp_stdv,'ko')
 ylabel('Cumulative drug release (%)','FontName','Arial','FontSize',8)
 xlabel('Time (days)','FontName','Arial','FontSize',8)
-legend ('Jiang et al. (2020)', 'Average COMSOL', 'Best COMSOL','FontName','Arial','FontSize',8,'Location','southeast')
+legend ( 'Average COMSOL', 'Best COMSOL','Jiang et al. (2020)','FontName','Arial','FontSize',8,'Location','southeast')
 axis([0,180,0,120])
 hold off
 
@@ -89,7 +97,7 @@ xlRange = 'P3:P102';
 sim_error = xlsread(filename,sheet,xlRange);
 
 subplot(2,2,2)
-plot (sim_iteration,sim_error,'ko','LineWidth',1)
+plot (sim_iteration,sim_error,'k.')
 yline(457.04,'--k','LineWidth',2)
 ylabel('Sum of squared errors','FontName','Arial','FontSize',8)
 xlabel('Completed multi-start run','FontName','Arial','FontSize',8)

@@ -1,6 +1,6 @@
 clear all
 clc
-close all
+
 file_name = 'Bilayered_MPs_Prediction.xlsx'; %Reading spreadsheet
 
 %% Cumulative drug release
@@ -353,6 +353,8 @@ rel_rate_1_5 = xlsread(file_name,sheet_num,rel_rate);
 % Release rate figure
 fig = figure(6);
 figname = 'figure6';
+co = orderedcolors("gem");
+    color4 = co(4, :);
 threshold = 2; % micrograms/day
 tolerance = 0.1;
 axisvector = [0 180 1e-2 400];
@@ -360,7 +362,7 @@ xtickvector = [0 30 60 90 120 150 180];
 ytickvector = [1e-2 1e-1 1 10 100 1000];
 
 subplot(4,6,1)
-semilogy(trange, rel_rate_0_25)
+semilogy(trange, rel_rate_0_25,'color',color4)
 hold on
 plotfill(trange, rel_rate_0_25,threshold,tolerance)
 title("$0.25R_{core}$",'FontWeight','Normal', "FontSize", 8,'interpreter','latex')
@@ -368,9 +370,8 @@ xticks(xtickvector)
 yticks(ytickvector)
 axis(axisvector)
 grid on
-
 subplot(4,6,2)
-semilogy(trange, rel_rate_0_5)
+semilogy(trange, rel_rate_0_5,'color',color4)
 hold on
 plotfill(trange, rel_rate_0_5,threshold,tolerance)
 title("$0.5R_{core}$",'FontWeight','Normal', "FontSize", 8,'interpreter','latex')
@@ -380,7 +381,7 @@ axis(axisvector)
 grid on
 
 subplot(4,6,3)
-semilogy(trange, rel_rate_0_75)
+semilogy(trange, rel_rate_0_75,'color',color4)
 hold on
 plotfill(trange, rel_rate_0_75,threshold,tolerance)
 title("$0.75R_{core}$",'FontWeight','Normal', "FontSize", 8,'interpreter','latex')
@@ -390,7 +391,7 @@ axis(axisvector)
 grid on
 
 subplot(4,6,4)
-semilogy(trange, rel_rate_1)
+semilogy(trange, rel_rate_1,'color',color4)
 hold on
 plotfill(trange, rel_rate_1,threshold,tolerance)
 title("$R_{core} = 5.10 \mu m$",'FontWeight','Normal', "FontSize", 8,'interpreter','latex')
@@ -400,7 +401,7 @@ axis(axisvector)
 grid on
 
 subplot(4,6,5)
-semilogy(trange, rel_rate_1_25)
+semilogy(trange, rel_rate_1_25,'color',color4)
 hold on
 plotfill(trange, rel_rate_1_25,threshold,tolerance)
 title("$1.25R_{core}$",'FontWeight','Normal', "FontSize", 8,'interpreter','latex')
@@ -410,7 +411,7 @@ axis(axisvector)
 grid on
 
 subplot(4,6,6)
-semilogy(trange, rel_rate_1_5)
+semilogy(trange, rel_rate_1_5,'color',color4)
 hold on
 plotfill(trange, rel_rate_1_5,threshold,tolerance)
 text(1.1, 0.5, "$0.5 \Delta R$", 'Units', 'normalized', 'FontWeight', 'Normal','FontSize',8,'interpreter','latex')
@@ -440,7 +441,7 @@ rel_rate = "W3:W183";
 rel_rate_1_5 = xlsread(file_name,sheet_num,rel_rate);
 
 subplot(4,6,7)
-semilogy(trange, rel_rate_0_25)
+semilogy(trange, rel_rate_0_25,'color',color4)
 hold on
 plotfill(trange, rel_rate_0_25,threshold,tolerance)
 xticks(xtickvector)
@@ -449,7 +450,7 @@ axis(axisvector)
 grid on
 
 subplot(4,6,8)
-semilogy(trange, rel_rate_0_5)
+semilogy(trange, rel_rate_0_5,'color',color4)
 hold on
 plotfill(trange, rel_rate_0_5,threshold,tolerance)
 xticks(xtickvector)
@@ -458,7 +459,7 @@ axis(axisvector)
 grid on
 
 subplot(4,6,9)
-semilogy(trange, rel_rate_0_75)
+semilogy(trange, rel_rate_0_75,'color',color4)
 hold on
 plotfill(trange, rel_rate_0_75,threshold,tolerance)
 xticks(xtickvector)
@@ -467,7 +468,7 @@ axis(axisvector)
 grid on
 
 subplot(4,6,10)
-semilogy(trange, rel_rate_1)
+semilogy(trange, rel_rate_1,'color',color4)
 hold on
 plotfill(trange, rel_rate_1,threshold,tolerance)
 xticks(xtickvector)
@@ -476,7 +477,7 @@ axis(axisvector)
 grid on
 
 subplot(4,6,11)
-semilogy(trange, rel_rate_1_25)
+semilogy(trange, rel_rate_1_25,'color',color4)
 hold on
 plotfill(trange, rel_rate_1_25,threshold,tolerance)
 xticks(xtickvector)
@@ -485,7 +486,7 @@ axis(axisvector)
 grid on
 
 subplot(4,6,12)
-semilogy(trange, rel_rate_1_5)
+semilogy(trange, rel_rate_1_5,'color',color4)
 hold on
 plotfill(trange, rel_rate_1_5,threshold,tolerance)
 text(1.1, 0.5, "$\Delta R$", 'Units', 'normalized', 'FontWeight', 'Normal','FontSize',8,'interpreter','latex')
@@ -513,7 +514,7 @@ rel_rate = "W3:W183";
 rel_rate_1_5 = xlsread(file_name,sheet_num,rel_rate);
 
 subplot(4,6,13)
-semilogy(trange, rel_rate_0_25)
+semilogy(trange, rel_rate_0_25,'color',color4)
 hold on
 plotfill(trange, rel_rate_0_25,threshold,tolerance)
 xticks(xtickvector)
@@ -522,7 +523,7 @@ axis(axisvector)
 grid on
 
 subplot(4,6,14)
-semilogy(trange, rel_rate_0_5)
+semilogy(trange, rel_rate_0_5,'color',color4)
 hold on
 plotfill(trange, rel_rate_0_5,threshold,tolerance)
 xticks(xtickvector)
@@ -531,7 +532,7 @@ axis(axisvector)
 grid on
 
 subplot(4,6,15)
-semilogy(trange, rel_rate_0_75)
+semilogy(trange, rel_rate_0_75,'color',color4)
 hold on
 plotfill(trange, rel_rate_0_75,threshold,tolerance)
 xticks(xtickvector)
@@ -540,7 +541,7 @@ axis(axisvector)
 grid on
 
 subplot(4,6,16)
-semilogy(trange, rel_rate_1)
+semilogy(trange, rel_rate_1,'color',color4)
 hold on
 plotfill(trange, rel_rate_1,threshold,tolerance)
 xticks(xtickvector)
@@ -549,7 +550,7 @@ axis(axisvector)
 grid on
 
 subplot(4,6,17)
-semilogy(trange, rel_rate_1_25)
+semilogy(trange, rel_rate_1_25,'color',color4)
 hold on
 plotfill(trange, rel_rate_1_25,threshold,tolerance)
 xticks(xtickvector)
@@ -558,7 +559,7 @@ axis(axisvector)
 grid on
 
 subplot(4,6,18)
-semilogy(trange, rel_rate_1_5)
+semilogy(trange, rel_rate_1_5,'color',color4)
 hold on
 plotfill(trange, rel_rate_1_5,threshold,tolerance)
 text(1.1, 0.5, "$5 \Delta R$", 'Units', 'normalized', 'FontWeight', 'Normal','FontSize',8,'interpreter','latex')
@@ -586,7 +587,7 @@ rel_rate = "W3:W183";
 rel_rate_1_5 = xlsread(file_name,sheet_num,rel_rate);
 
 subplot(4,6,19)
-semilogy(trange, rel_rate_0_25)
+semilogy(trange, rel_rate_0_25,'color',color4)
 hold on
 plotfill(trange, rel_rate_0_25,threshold,tolerance)
 xticks(xtickvector)
@@ -595,7 +596,7 @@ axis(axisvector)
 grid on
 
 subplot(4,6,20)
-semilogy(trange, rel_rate_0_5)
+semilogy(trange, rel_rate_0_5,'color',color4)
 hold on
 plotfill(trange, rel_rate_0_5,threshold,tolerance)
 xticks(xtickvector)
@@ -604,7 +605,7 @@ axis(axisvector)
 grid on
 
 subplot(4,6,21)
-semilogy(trange, rel_rate_0_75)
+semilogy(trange, rel_rate_0_75,'color',color4)
 hold on
 plotfill(trange, rel_rate_0_75,threshold,tolerance)
 xticks(xtickvector)
@@ -613,7 +614,7 @@ axis(axisvector)
 grid on
 
 subplot(4,6,22)
-semilogy(trange, rel_rate_1)
+semilogy(trange, rel_rate_1,'color',color4)
 hold on
 plotfill(trange, rel_rate_1,threshold,tolerance)
 xticks(xtickvector)
@@ -622,7 +623,7 @@ axis(axisvector)
 grid on
 
 subplot(4,6,23)
-semilogy(trange, rel_rate_1_25)
+semilogy(trange, rel_rate_1_25,'color',color4)
 hold on
 plotfill(trange, rel_rate_1_25,threshold,tolerance)
 xticks(xtickvector)
@@ -631,7 +632,7 @@ axis(axisvector)
 grid on
 
 subplot(4,6,24)
-semilogy(trange, rel_rate_1_5)
+semilogy(trange, rel_rate_1_5,'color',color4)
 hold on
 plotfill(trange, rel_rate_1_5,threshold,tolerance)
 text(1.1, 0.5, "$10 \Delta R$", 'Units', 'normalized', 'FontWeight', 'Normal','FontSize',8,'interpreter','latex')

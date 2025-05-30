@@ -11,8 +11,10 @@ if (sum(within_range)~=0)
     % shade the region
     fill_x = x(expanded_range)';
     fill_y = y(expanded_range)';
+    co = orderedcolors("gem");
+    color5 = co(5, :);
     fill([fill_x(1) fill_x fill_x(end)],[1e-3 fill_y 1e-3], ...
-        'r', 'FaceAlpha', 0.3, 'EdgeColor', 'none');
+        color5, 'FaceAlpha', 0.3, 'EdgeColor', 'none');
 end
 
 end

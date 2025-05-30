@@ -20,20 +20,16 @@ cumulrel_upper = [0	15.516538	33.31897205	46.86645791	57.35857238	65.64625869	72
 figure(53) %FigureS3
 figname = 'figureS3';
 %subplot(2,2,1)
-set(gca,'ColorOrderIndex',4)
+co = orderedcolors("gem");
+color1 = co(1, :);  
 
-co = get(gca, 'ColorOrder'); % Get the default color order
-color4 = co(4, :);  
-color5 = co(5, :);  
-color6 = co(6, :);  
-color7 = co(7, :);  
 
-errorbar(exp_time_bsa,exp_rel_bsa,exp_stdv_bsa,'x','Color',color4)
+errorbar(exp_time_bsa,exp_rel_bsa,exp_stdv_bsa,'k^')
 hold on
-errorbar(exp_time_bev,exp_rel_bev,exp_stdv_bev,'^','Color',color5)
+errorbar(exp_time_bev,exp_rel_bev,exp_stdv_bev,'ko')
 hold on
-plot(timevector,cumulrel_upper,'-','color',color7,'LineWidth',2)
-plot(timevector,cumulrel_lower,'--','Color',color6,'LineWidth',2)
+plot(timevector,cumulrel_upper,'-','color',color1,'LineWidth',2)
+plot(timevector,cumulrel_lower,'--','Color',color1,'LineWidth',2)
 ylabel('Cumulative drug release (%)','FontName','Arial','FontSize',8)
 xlabel('Time (days)','FontName','Arial','FontSize',8)
 legend ('Jiang et al. (2020): BSA', 'Jiang et al. (2020): Bevacizumab',  'D_{Chi} = D_{PCL} = 1\times10^{-13} cm^2/s', 'D_{Chi} = D_{PCL} = 1\times10^{-15} cm^2/s','FontName','Arial','FontSize',8,'Location','southoutside')
