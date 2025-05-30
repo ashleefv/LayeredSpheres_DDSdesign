@@ -67,7 +67,7 @@ timevector_plot = timevector/86400; %scaling to days
     caxis([minVal maxVal]); % Set shared color axis
     xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','rotation', 14,'FontSize', 8)
     ylabel("$\Delta R$ baseline multiplier",'interpreter','latex','rotation', -25,'FontSize', 8)
-    zlabel({'Days above $2\mu$g/day', 'release rate', '($t$ at $\dot{A}_{rel}=2$)'},'FontSize', 8,'interpreter','latex')
+    zlabel({'Days above 2 $\mu$g/day', 'release rate', '($t$ at $\dot{A}_{rel}=2$)'},'FontSize', 8,'interpreter','latex')
     zticks([0 30 60 90 120 150 180])
     axis([0 2, 0 10, 30 180])
 
@@ -91,16 +91,16 @@ timevector_plot = timevector/86400; %scaling to days
     R1_size_relrate = size(time_within_relrate);
 
 
-    plot(R1_numeric(1:R1_size_cumulrel(2)),time_within_cumulrel(2,:)','-','Color',color1,'LineWidth',2)
-    plot(R1_numeric(1:R1_size_cumulrel(2)),time_within_cumulrel(end,:)','--','Color',color1,'LineWidth',2)
-    plot(R1_numeric(1:R1_size_relrate(2)),time_within_relrate(2,:)','-','Color',color4,'LineWidth',2)
-    plot(R1_numeric(1:R1_size_relrate(2)),time_within_relrate(end,:)','--','Color',color4,'linewidth',2)
+    plot(R1_numeric(1:R1_size_cumulrel(2)),time_within_cumulrel(1,:)','--','Color',color1,'LineWidth',2)
+    plot(R1_numeric(1:R1_size_cumulrel(2)),time_within_cumulrel(end,:)','-','Color',color1,'LineWidth',2)
+    plot(R1_numeric(1:R1_size_relrate(2)),time_within_relrate(1,:)','--','Color',color4,'LineWidth',2)
+    plot(R1_numeric(1:R1_size_relrate(2)),time_within_relrate(end,:)','-','Color',color4,'linewidth',2)
 
     xticks([0.4 0.6 0.8 1 1.2 1.4 1.6 1.8 2])
     yticks([0 30 60 90 120 150 180])
     xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','FontSize', 8)
     ylabel("Days to achieve thresholds",'FontSize', 8,'interpreter','latex')
-    legend('$t_{Q=90\%}: 0.5\Delta R$','$t_{Q=90\%}: 10\Delta R$','$t_{\dot{A}_{rel}=2}: 0.5\Delta R$','$t_{\dot{A}_{rel}=2}: 10\Delta R$','Location','south','FontSize', 8,'interpreter','latex')
+    legend(['$t_{Q=90\%}$: ', num2str(y1(1)),'$\Delta R$'],['$t_{Q=90\%}$: ' , num2str(y1(end)), '$\Delta R$'],['$t_{\dot{A}_{rel}=2}$: ', num2str(y2(1)),'$\Delta R$'],['$t_{\dot{A}_{rel}=2}$: ' , num2str(y2(end)), '$\Delta R$'],'Location','south','FontSize', 8,'interpreter','latex')
     hold off
     axis([0.4 2, 30 180])
 
@@ -109,7 +109,6 @@ timevector_plot = timevector/86400; %scaling to days
         subplot(2,2,v)
         hold on
         text(-0.225, 1.1, labelstring(v)', 'Units', 'normalized', 'FontWeight', 'bold','FontSize',8)
-        set(gca,'FontSize',8)
     end
 
 widthInches = 6.5;
