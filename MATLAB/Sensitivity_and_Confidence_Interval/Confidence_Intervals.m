@@ -48,14 +48,14 @@ end
 
 %% Loop over three radius data sets for BSA
 
-y_out = solve_FD_spheres_variable_diffusivity(params,t,burst0,DD0chitosan,DD0pcl,k0);
+y_out = solve_FD_spheres_sensitivity(params,t,burst0,DD0chitosan,DD0pcl,k0);
 
 S_FD = [];
 S_FD_norm = [];
 for i = 1:length(params)
     dp = params; %reset parameters
     dp(i) = dp(i)*(1+percent*1e-2); %perturb i-th parameter by a small amount
-    dy = solve_FD_spheres_variable_diffusivity(dp,t,burst0,DD0chitosan,DD0pcl,k0);
+    dy = solve_FD_spheres_sensitivity(dp,t,burst0,DD0chitosan,DD0pcl,k0);
 
 % Obtain the sensitivities of all time points for each parameter perturbation
     S_FD = [S_FD (dy-y_out)/p(i)/(percent*1e-2)];
