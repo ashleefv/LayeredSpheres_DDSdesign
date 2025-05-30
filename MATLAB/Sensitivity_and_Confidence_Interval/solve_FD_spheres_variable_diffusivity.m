@@ -120,7 +120,8 @@ else
 end
 
 
-%% ODE solver (ode45) call
+%% ODE solver (ode23s) call
+addpath(fileparts(pwd));
 [time,concentration] = ode23s(@(t,c)FD_spheres_variable_diffusivity_two_spheres(t,c,dr1,dr2,NR1,NR2,alpha,r,k),timevector,c0);
 
 if dr1>0
