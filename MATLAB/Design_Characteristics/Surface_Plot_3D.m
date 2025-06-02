@@ -34,7 +34,7 @@ R2_thick = 0.5:0.5:10; %Multiples of PCL thickness to try
 timevector = 0:1:200; % time to study in days
 loaded_drug = 1.03; %amount of drug loaded in mg
 cumulrel_threshold = 90; %threshold of cumulative release (%)
-relrate_threshold = 1.8; %threshold of release rate (micrograms/day)
+relrate_threshold = 2; %threshold of release rate (micrograms/day)
 
 %% Diffusion, burst, and partition parameters for drug (estimated)
 DInner = 2.6e-15; % cm2/s;;
