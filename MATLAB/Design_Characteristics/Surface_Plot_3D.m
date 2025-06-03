@@ -35,6 +35,7 @@ timevector = 0:1:200; % time to study in days
 loaded_drug = 1.03; %amount of drug loaded in mg
 cumulrel_threshold = 90; %threshold of cumulative release (%)
 relrate_threshold = 2; %threshold of release rate (micrograms/day)
+tolerance = 0.1; %tolerance for release rate treshold (fraction percent)
 
 %% Diffusion, burst, and partition parameters for drug (estimated)
 DInner = 2.6e-15; % cm2/s;;
@@ -216,7 +217,7 @@ if strcmp(plotting,'yes')
     % %%% Cumulative drug release
     figure(7);
     figname = 'figure7';
-    subplot(2,2,1)
+    subplot(2,3,1)
     time_within_cumulrel = zeros();
     x1 = zeros();
     y1 = zeros();
@@ -234,15 +235,7 @@ if strcmp(plotting,'yes')
         end
     end
     time_within_cumulrel(time_within_cumulrel==0) = NaN;
-    surf(x1,y1,time_within_cumulrel)
-    xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','rotation', 14,'FontSize', 8)
-    ylabel("$\Delta R$ baseline multiplier",'interpreter','latex','rotation', -25,'FontSize', 8)
-    zlabel("Days to achieve 90% release",'FontSize', 8)
-    zticks([0 30 60 90 120 150 180])
-    axis([0 2, 0 10, 30 180])
 
-    %%%Drug release rate
-    subplot(2,2,2)
     time_within_relrate = zeros(i,j);
     x2 = zeros(i,j);
     y2 = zeros(i,j);
@@ -256,57 +249,131 @@ if strcmp(plotting,'yes')
             time_within_relrate(l,m) = sum(storage_relrate{l,m}>=relrate_threshold);
         end
     end
-    surf(x2,y2,time_within_relrate)
-    xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','rotation', 14,'FontSize', 8)
-    ylabel("$\Delta R$ baseline multiplier",'interpreter','latex','rotation', -25,'FontSize', 8)
-    zlabel("Days above 2\mug/day of drug release",'FontSize', 8)
+    % determine colormap scale
+    minVal = min([min(time_within_cumulrel(:)), min(time_within_relrate(:))]);
+    maxVal = max([max(time_within_cumulrel(:)), max(time_within_relrate(:))]);
+
+
+    surf(x1,y1,time_within_cumulrel)
+    caxis([minVal maxVal]); % Set shared color axis
+    xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','rotation', 20,'FontSize', 8)
+    ylabel("$\Delta R$ baseline multiplier",'interpreter','latex','rotation', -32,'FontSize', 8)
+    zlabel({'Days to achieve 90 \%release', '($t$ at $Q=90\%$)'},'FontSize', 8,'interpreter','latex')
     zticks([0 30 60 90 120 150 180])
     axis([0 2, 0 10, 30 180])
 
-    subplot(2,2,3)
+    %%%Drug release rate
+    subplot(2,3,2)
+    surf(x2,y2,time_within_relrate)
+    caxis([minVal maxVal]); % Set shared color axis
+    xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','rotation', 20,'FontSize', 8)
+    ylabel("$\Delta R$ baseline multiplier",'interpreter','latex','rotation', -32,'FontSize', 8)
+    zlabel({'Days above 2 $\mu$g/day', 'release rate', '($t$ at $\dot{A}_{rel}=2$)'},'FontSize', 8,'interpreter','latex')
+    zticks([0 30 60 90 120 150 180])
+    axis([0 2, 0 10, 30 180])
+
+    subplot(2,3,3)
     surf(x1,y1,time_within_cumulrel)
     hold on
     surf(x2,y2,time_within_relrate)
-    xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','rotation', 14,'FontSize', 8)
-    ylabel("$\Delta R$ baseline multiplier",'interpreter','latex','rotation', -25,'FontSize', 8)
-    zlabel("Days to achieve thresholds",'FontSize', 8)
+    xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','rotation', 20,'FontSize', 8)
+    ylabel("$\Delta R$ baseline multiplier",'interpreter','latex','rotation', -32,'FontSize', 8)
+    zlabel("Days to achieve thresholds",'FontSize', 8,'interpreter','latex')
     zticks([0 30 60 90 120 150 180])
     axis([0 2, 0 10, 30 180])
 
-    subplot(2,2,4)
+    labelstring = {'a)', 'b)', 'c)', 'd)'};
+    for v = 1:3
+        subplot(2,3,v)
+        hold on
+        text(-0.3, 1.1, labelstring(v)', 'Units', 'normalized', 'FontWeight', 'bold','FontSize',8)
+    end
+
+    subplot(2,3,[4 5])
+    for l=1:i
+        chosen_R2 = R2_thick(l)/(R2_bl-R1_bl);
+        for m=1:j
+            chosen_R1 = R1_sizes(m)/R1_bl;
+            x2(l,m) = chosen_R1;
+            y2(l,m) = chosen_R2;
+            time_within_relrate_ub(l,m) = sum(storage_relrate{l,m}>=(1-1*tolerance)*relrate_threshold);
+        end
+    end
+
+    for l=1:i
+        chosen_R2 = R2_thick(l)/(R2_bl-R1_bl);
+        for m=1:j
+            chosen_R1 = R1_sizes(m)/R1_bl;
+            x2(l,m) = chosen_R1;
+            y2(l,m) = chosen_R2;
+            time_within_relrate_lb(l,m) = sum(storage_relrate{l,m}>=(1+1*tolerance)*relrate_threshold);
+        end
+    end
+
+
     hold on
-    co = get(gca, 'ColorOrder'); % Get the default color order
-    color5 = co(5, :);
-    color7 = co(7,:);
+    co = orderedcolors("gem");
+    color1 = co(1,:);
+    color4 = co(4,:);
     R1_numeric = str2double(R1_text);
     R1_size_cumulrel = size(time_within_cumulrel);
     R1_size_relrate = size(time_within_relrate);
 
+    %Plotting cumulative release threshold for DeltaR=10
+    plot(R1_numeric(1:R1_size_cumulrel(2)),time_within_cumulrel(end,:)','-','Color',color1,'LineWidth',2)
 
-    plot(R1_numeric(1:R1_size_cumulrel(2)),time_within_cumulrel(2,:)','--','Color',color5,'LineWidth',2)
-    plot(R1_numeric(1:R1_size_relrate(2)),time_within_relrate(2,:)','-','Color',color5,'LineWidth',2)
-    plot(R1_numeric(1:R1_size_cumulrel(2)),time_within_cumulrel(end,:)','-','Color',color7,'LineWidth',2)
-    plot(R1_numeric(1:R1_size_relrate(2)),time_within_relrate(end,:)','--','Color',color7,'linewidth',2)
+    %Plotting cumulative release threshold for DeltaR=0.5
+    plot(R1_numeric(1:R1_size_cumulrel(2)),time_within_cumulrel(1,:)','--','Color',color1,'LineWidth',2)
+
+    %Plotting release rate threshold for DeltaR=10
+    plot(R1_numeric(1:R1_size_relrate(2)),time_within_relrate(end,:)','k-','linewidth',2)
+
+    %Fill for release rate threshold for DeltaR=10
+    x = R1_numeric(1:R1_size_relrate(2))';
+    upper_bound_2 = time_within_relrate_ub(end,:);
+    lower_bound_2 = time_within_relrate_lb(end,:);
+    fill([x fliplr(x)], [upper_bound_2 fliplr(lower_bound_2)], 'k', 'FaceAlpha', 0.3, 'EdgeColor', 'none');
+
+    %Plotting release rate threshold for DeltaR=0.5
+    plot(R1_numeric(1:R1_size_relrate(2)),time_within_relrate(1,:)','--','Color',color4,'LineWidth',2)
+
+    %Fill for release rate threshold for DeltaR=0.5
+    upper_bound_1 = time_within_relrate_ub(1,:);
+    lower_bound_1 = time_within_relrate_lb(1,:);
+    fill([x fliplr(x)], [upper_bound_1 fliplr(lower_bound_1)], color4, 'FaceAlpha', 0.3, 'EdgeColor', 'none');
+
+    %To get the dashed effect for the 10 delta R shading
+    plot(x, upper_bound_2, 'k-', 'LineWidth', 1); % Dashed black line for upper bound
+    plot(x, lower_bound_2, 'k-', 'LineWidth', 1); % Dashed black line for lower bound
+
+    %To get the dashed effect for the 0.5 delta R shading
+    plot(x, upper_bound_1, '--', 'color', color4, 'LineWidth', 1); % Dashed purple line for upper bound
+    plot(x, lower_bound_1, '--', 'color', color4, 'LineWidth', 1); % Dashed purple line for lower bound
 
     xticks([0.4 0.6 0.8 1 1.2 1.4 1.6 1.8 2])
     yticks([0 30 60 90 120 150 180])
     xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','FontSize', 8)
-    ylabel("Days to achieve thresholds",'FontSize', 8)
-    legend('Cumulative release','Release rate','FontName','Arial','Location','southeast','FontSize', 8)
+    ylabel("Days to achieve thresholds",'FontSize', 8,'interpreter','latex')
     hold off
     axis([0.4 2, 30 180])
 
-    labelstring = {'a)', 'b)', 'c)', 'd)'};
-    for v = 1:4
-        subplot(2,2,v)
-        hold on
-        text(-0.225, 1.1, labelstring(v)', 'Units', 'normalized', 'FontWeight', 'bold','FontSize',8)
-        set(gca,'FontName','Arial','FontSize',8)
-    end
+    %Overall legend
+    legend(['$t_{Q=90\%}$: ' , num2str(y1(end)), '$\Delta R$'],...
+        ['$t_{Q=90\%}$: ', num2str(y1(1)),'$\Delta R$'],...
+        ['$t_{\dot{A}_{rel}=2}$: ', num2str(y2(end)),'$\Delta R$'],...
+        ['$t_{\dot{A}_{rel}=2 \pm 0.2}: 10 \Delta R$'],...
+        ['$t_{\dot{A}_{rel}=2}$: ' , num2str(y2(1)), '$\Delta R$'],...
+        ['$t_{\dot{A}_{rel}=2 \pm 0.2}: 0.5 \Delta R$',],...
+        'interpreter','latex','Location','south','FontSize', 8)
+    h = legend('Location','southoutside');
+    p = [0.75 0.27 0.03 0.03];
+    set(h,'Position', p,'Units', 'normalized');
+
+    text(-0.08, 1.1, labelstring(4)', 'Units', 'normalized', 'FontWeight', 'bold','FontSize',8)
+end
 
 widthInches = 6.5;
 heightInches = 5;
 run('../ScriptForExportingImages.m')
 
-end
 
