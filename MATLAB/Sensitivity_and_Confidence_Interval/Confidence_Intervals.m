@@ -19,7 +19,7 @@ num_meas = length(t); %Number of measurements
 params = [1,1,1,1];
 k0 = 1; % dimensionless partition coefficient
 
-results_file = 'InitialGuesses50Simulations.xlsx';
+results_file = 'Initial_Guesses_50_Simulations.xlsx';
 param1 = 'J54';
 param2 = 'K54';
 param3 = 'L54';
