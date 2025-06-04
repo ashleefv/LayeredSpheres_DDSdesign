@@ -60,11 +60,12 @@ E.A. Chacin Ruiz, S. L. Carpenter, K. E. Swindle-Reilly, and A. N. Ford Versypt,
 
 ### Sensitivity_and_Confidence_Interval Folder Scripts and Data
 * Combined_local_and_SOBOL.m This file plots a 3x2 figure where the top row is composed of local sensitivity analysis obtained from MATLAB and the bottom row is composed of SOBOL indices obtained from COMSOL. Creates Figure 2.
-* Confidence_Intervals.m This plots allows for the calculation of local sensitivity of the obtained estimated parameters, as well as calculation of the confidence interval of those parameters.
+* Confidence_Intervals.m This scripts calculates the sensitivity matrix S and uses it for the calculation of the confidence interval of the specified paramters.
 * Initial_Guesses_50_Simulations.xlsx This datasheet contains the information used and results for the final parameter estimation for both BSA and bevacizumab in MATLAB and COMSOL.
 * MOAT.m This script is used to plot the Morris one-at-a-time results obtained from COMSOL. Creates Figure S7.
 * MOAT_Info_COMSOL.xlsx This datasheet contains the COMSOL results of the MOAT mean and MOAT standard deviation for the parameters under different drug release regimens.
 * MPs_release_6_months.xlsx This datasheet contains the experimental data for cumulative drug release with time, and its standard deviation.
+* Sensitivity_Analysis.m This scripts solves the local sensitivity analysis for a given perturbance percentage and plots the normalized change in cumulative drug release for the specified parameters.
 * solve_FD_spheres_sensitivity.m This file solves the PDE for Fickian diffusion within a radially symmetric sphere. It is an optimized version of "solve_FD_spheres_variable_diffusivity.m" reporposed for the type of input and output required for the sensitivity analysis.
 
 ## COMSOL Folder Scripts and Data
