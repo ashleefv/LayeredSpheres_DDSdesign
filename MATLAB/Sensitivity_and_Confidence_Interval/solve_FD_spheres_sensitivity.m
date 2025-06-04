@@ -95,9 +95,9 @@ end
 if nargin == 6
     params = varargin{1};
     burst = params(1)*burst_fixed;
-    DOuter = params(2)*DOuter_fixed;
-    DInner = params(3)*DInner_fixed;
-    k = params(4)*k_fixed;
+    DInner = params(2)*DInner_fixed;
+    DOuter = 1000*DInner;
+    k = k_fixed;
     timevector = varargin{2}.*86400; %s
     alpha0Inner = DInner/R2^2; % scale by outer radius in dimensional form
     alpha0Outer = DOuter/R2^2; % scale by outer radius in dimensional form
