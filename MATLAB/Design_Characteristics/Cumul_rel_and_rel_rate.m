@@ -6,20 +6,20 @@ file_name = 'Bilayered_MPs_Prediction.xlsx'; %Reading spreadsheet
 %% Cumulative drug release
 % Constant PCL layer (0.5*1.25 um thickness), varying chitosan radius
 sheet_num = 1;
-time = "A3:A183";
+time = "A4:A183";
 trange = xlsread(file_name,sheet_num,time);
 
-cuml_rel = "B3:B183";
+cuml_rel = "B4:B183";
 cuml_rel_rate_0_25 = xlsread(file_name,sheet_num,cuml_rel);
-cuml_rel = "F3:F183";
+cuml_rel = "F4:F183";
 cuml_rel_rate_0_5 = xlsread(file_name,sheet_num,cuml_rel);
-cuml_rel = "J3:J183";
+cuml_rel = "J4:J183";
 cuml_rel_rate_0_75 = xlsread(file_name,sheet_num,cuml_rel);
-cuml_rel = "N3:N183";
+cuml_rel = "N4:N183";
 cuml_rel_rate_1 = xlsread(file_name,sheet_num,cuml_rel);
-cuml_rel = "R3:R183";
+cuml_rel = "R4:R183";
 cuml_rel_rate_1_25 = xlsread(file_name,sheet_num,cuml_rel);
-cuml_rel = "V3:V183";
+cuml_rel = "V4:V183";
 cuml_rel_rate_1_5 = xlsread(file_name,sheet_num,cuml_rel);
 
 %Cumulative release figure
@@ -92,20 +92,20 @@ grid on
 % Constant PCL layer (1.25 um thickness), varying chitosan radius
 sheet_num = 2;
 
-time = "A3:A183";
+time = "A4:A183";
 trange = xlsread(file_name,sheet_num,time);
 
-cuml_rel = "B3:B183";
+cuml_rel = "B4:B183";
 cuml_rel_rate_0_25 = xlsread(file_name,sheet_num,cuml_rel);
-cuml_rel = "F3:F183";
+cuml_rel = "F4:F183";
 cuml_rel_rate_0_5 = xlsread(file_name,sheet_num,cuml_rel);
-cuml_rel = "J3:J183";
+cuml_rel = "J4:J183";
 cuml_rel_rate_0_75 = xlsread(file_name,sheet_num,cuml_rel);
-cuml_rel = "N3:N183";
+cuml_rel = "N4:N183";
 cuml_rel_rate_1 = xlsread(file_name,sheet_num,cuml_rel);
-cuml_rel = "R3:R183";
+cuml_rel = "R4:R183";
 cuml_rel_rate_1_25 = xlsread(file_name,sheet_num,cuml_rel);
-cuml_rel = "V3:V183";
+cuml_rel = "V4:V183";
 cuml_rel_rate_1_5 = xlsread(file_name,sheet_num,cuml_rel);
 
 %Experimental data
@@ -180,20 +180,20 @@ grid on
 
 % Constant PCL layer (5*1.25 um thickness), varying chitosan radius
 sheet_num = 3;
-time = "A3:A183";
+time = "A4:A183";
 trange = xlsread(file_name,sheet_num,time);
 
-cuml_rel = "B3:B183";
+cuml_rel = "B4:B183";
 cuml_rel_rate_0_25 = xlsread(file_name,sheet_num,cuml_rel);
-cuml_rel = "F3:F183";
+cuml_rel = "F4:F183";
 cuml_rel_rate_0_5 = xlsread(file_name,sheet_num,cuml_rel);
-cuml_rel = "J3:J183";
+cuml_rel = "J4:J183";
 cuml_rel_rate_0_75 = xlsread(file_name,sheet_num,cuml_rel);
-cuml_rel = "N3:N183";
+cuml_rel = "N4:N183";
 cuml_rel_rate_1 = xlsread(file_name,sheet_num,cuml_rel);
-cuml_rel = "R3:R183";
+cuml_rel = "R4:R183";
 cuml_rel_rate_1_25 = xlsread(file_name,sheet_num,cuml_rel);
-cuml_rel = "V3:V183";
+cuml_rel = "V4:V183";
 cuml_rel_rate_1_5 = xlsread(file_name,sheet_num,cuml_rel);
 
 subplot(4,6,13)
@@ -248,20 +248,20 @@ grid on
 
 % Constant PCL layer (10*1.25 um thickness), varying chitosan radius
 sheet_num = 4;
-time = "A3:A183";
+time = "A4:A183";
 trange = xlsread(file_name,sheet_num,time);
 
-cuml_rel = "B3:B183";
+cuml_rel = "B4:B183";
 cuml_rel_rate_0_25 = xlsread(file_name,sheet_num,cuml_rel);
-cuml_rel = "F3:F183";
+cuml_rel = "F4:F183";
 cuml_rel_rate_0_5 = xlsread(file_name,sheet_num,cuml_rel);
-cuml_rel = "J3:J183";
+cuml_rel = "J4:J183";
 cuml_rel_rate_0_75 = xlsread(file_name,sheet_num,cuml_rel);
-cuml_rel = "N3:N183";
+cuml_rel = "N4:N183";
 cuml_rel_rate_1 = xlsread(file_name,sheet_num,cuml_rel);
-cuml_rel = "R3:R183";
+cuml_rel = "R4:R183";
 cuml_rel_rate_1_25 = xlsread(file_name,sheet_num,cuml_rel);
-cuml_rel = "V3:V183";
+cuml_rel = "V4:V183";
 cuml_rel_rate_1_5 = xlsread(file_name,sheet_num,cuml_rel);
 
 subplot(4,6,19)
@@ -334,20 +334,20 @@ run('../ScriptForExportingImages.m')
 %% Release rate
 % Constant PCL layer (0.5*1.25 um thickness), varying chitosan radius
 sheet_num = 1;
-time = "A3:A183";
+time = "A4:A183";
 trange = xlsread(file_name,sheet_num,time);
 
-rel_rate = "C3:C183";
+rel_rate = "C4:C183";
 rel_rate_0_25 = xlsread(file_name,sheet_num,rel_rate);
-rel_rate = "G3:G183";
+rel_rate = "G4:G183";
 rel_rate_0_5 = xlsread(file_name,sheet_num,rel_rate);
-rel_rate = "K3:K183";
+rel_rate = "K4:K183";
 rel_rate_0_75 = xlsread(file_name,sheet_num,rel_rate);
-rel_rate = "O3:O183";
+rel_rate = "O4:O183";
 rel_rate_1 = xlsread(file_name,sheet_num,rel_rate);
-rel_rate = "S3:S183";
+rel_rate = "S4:S183";
 rel_rate_1_25 = xlsread(file_name,sheet_num,rel_rate);
-rel_rate = "W3:W183";
+rel_rate = "W4:W183";
 rel_rate_1_5 = xlsread(file_name,sheet_num,rel_rate);
 
 % Release rate figure
@@ -424,20 +424,20 @@ grid on
 
 % Constant PCL layer (1.25 um thickness), varying chitosan radius
 sheet_num = 2;
-time = "A3:A183";
+time = "A4:A183";
 trange = xlsread(file_name,sheet_num,time);
 
-rel_rate = "C3:C183";
+rel_rate = "C4:C183";
 rel_rate_0_25 = xlsread(file_name,sheet_num,rel_rate);
-rel_rate = "G3:G183";
+rel_rate = "G4:G183";
 rel_rate_0_5 = xlsread(file_name,sheet_num,rel_rate);
-rel_rate = "K3:K183";
+rel_rate = "K4:K183";
 rel_rate_0_75 = xlsread(file_name,sheet_num,rel_rate);
-rel_rate = "O3:O183";
+rel_rate = "O4:O183";
 rel_rate_1 = xlsread(file_name,sheet_num,rel_rate);
-rel_rate = "S3:S183";
+rel_rate = "S4:S183";
 rel_rate_1_25 = xlsread(file_name,sheet_num,rel_rate);
-rel_rate = "W3:W183";
+rel_rate = "W4:W183";
 rel_rate_1_5 = xlsread(file_name,sheet_num,rel_rate);
 
 subplot(4,6,7)
@@ -497,20 +497,20 @@ grid on
 
 % Constant PCL layer (5*1.25 um thickness), varying chitosan radius
 sheet_num = 3;
-time = "A3:A183";
+time = "A4:A183";
 trange = xlsread(file_name,sheet_num,time);
 
-rel_rate = "C3:C183";
+rel_rate = "C4:C183";
 rel_rate_0_25 = xlsread(file_name,sheet_num,rel_rate);
-rel_rate = "G3:G183";
+rel_rate = "G4:G183";
 rel_rate_0_5 = xlsread(file_name,sheet_num,rel_rate);
-rel_rate = "K3:K183";
+rel_rate = "K4:K183";
 rel_rate_0_75 = xlsread(file_name,sheet_num,rel_rate);
-rel_rate = "O3:O183";
+rel_rate = "O4:O183";
 rel_rate_1 = xlsread(file_name,sheet_num,rel_rate);
-rel_rate = "S3:S183";
+rel_rate = "S4:S183";
 rel_rate_1_25 = xlsread(file_name,sheet_num,rel_rate);
-rel_rate = "W3:W183";
+rel_rate = "W4:W183";
 rel_rate_1_5 = xlsread(file_name,sheet_num,rel_rate);
 
 subplot(4,6,13)
@@ -570,20 +570,20 @@ grid on
 
 % Constant PCL layer (10*1.25 um thickness), varying chitosan radius
 sheet_num = 4;
-time = "A3:A183";
+time = "A4:A183";
 trange = xlsread(file_name,sheet_num,time);
 
-rel_rate = "C3:C183";
+rel_rate = "C4:C183";
 rel_rate_0_25 = xlsread(file_name,sheet_num,rel_rate);
-rel_rate = "G3:G183";
+rel_rate = "G4:G183";
 rel_rate_0_5 = xlsread(file_name,sheet_num,rel_rate);
-rel_rate = "K3:K183";
+rel_rate = "K4:K183";
 rel_rate_0_75 = xlsread(file_name,sheet_num,rel_rate);
-rel_rate = "O3:O183";
+rel_rate = "O4:O183";
 rel_rate_1 = xlsread(file_name,sheet_num,rel_rate);
-rel_rate = "S3:S183";
+rel_rate = "S4:S183";
 rel_rate_1_25 = xlsread(file_name,sheet_num,rel_rate);
-rel_rate = "W3:W183";
+rel_rate = "W4:W183";
 rel_rate_1_5 = xlsread(file_name,sheet_num,rel_rate);
 
 subplot(4,6,19)
