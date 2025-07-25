@@ -6,11 +6,9 @@ Code for performing parameter estimation on core-shell or core microparticles us
 This repository contains the MATLAB and COMSOL files from the manuscript cited below that simulates drug delivery from a single- or bi-layered microsphere and estimates the parameters (drug diffusion coefficient in chitosan, drug diffusion coefficient in PCL, burst release, and partition coefficient) that best fit a given input dataset of cumulative release vs. time. Latin hypercube sampling is used to determine the initial guesses in the multi-start approach.
 
 ## Code Authors
-Eduardo A. Chacin Ruiz<sup>a</sup>,  Ashlee N. Ford Versypt<sup>a,b,c</sup>
+Eduardo A. Chacin Ruiz, S. L. Carpenter, K. E. Swindle-Reilly,  Ashlee N. Ford Versypt
 
-<sup>a</sup>Department of Chemical and Biological Engineering, University at Buffalo, The State University of New York, Buffalo, NY, USA<br/>
-<sup>b</sup>Department of Biomedical Engineering, University at Buffalo, The State University of New York, Buffalo, NY, USA<br/>
-<sup>c</sup>Institute for Artificial Intelligence and Data Science, University at Buffalo, The State University of New York, Buffalo, NY, USA<br/>
+Contact: ashleefv@buffalo.edu
 
 ## Manuscript
 E.A. Chacin Ruiz, S. L. Carpenter, K. E. Swindle-Reilly, and A. N. Ford Versypt, Mathematical Modeling of Drug Delivery from Bi-Layered Core-Shell Polymeric Microspheres, bioRxiv preprint, DOI: 10.1101/2024.01.11.575289 [Preprint](https://doi.org/10.1101/2024.01.11.575289)
