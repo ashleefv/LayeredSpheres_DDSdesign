@@ -31,10 +31,10 @@ R2_bl = (12.7e-4)/2; %Chitosan + PCL radius baseline (cm). If R1=R2, then no PCL
 
 R1_sizes = 0.2:0.1:2; %Multiples of chitosan radius to try
 R2_thick = 0.5:0.5:10; %Multiples of PCL thickness to try
-timevector = 0:1:200; % time to study in days
+timevector = 0:1:380; % time to study in days
 loaded_drug = 1.03; %amount of drug loaded in mg
 cumulrel_threshold = 90; %threshold of cumulative release (%)
-relrate_threshold = 2; %threshold of release rate (micrograms/day)
+relrate_threshold = 1; %threshold of release rate (micrograms/day)
 tolerance = 0.1; %tolerance for release rate treshold (fraction percent)
 
 %% Diffusion, burst, and partition parameters for drug (estimated)
@@ -215,8 +215,8 @@ if strcmp(plotting,'yes')
 
 
     % %%% Cumulative drug release
-    figure(7);
-    figname = 'figure7';
+    figure(510);
+    figname = 'figureS10';
     subplot(2,3,1)
     time_within_cumulrel = zeros();
     x1 = zeros();
@@ -259,8 +259,8 @@ if strcmp(plotting,'yes')
     xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','rotation', 20,'FontSize', 8)
     ylabel("$\Delta R$ baseline multiplier",'interpreter','latex','rotation', -32,'FontSize', 8)
     zlabel({'Days to achieve 90 \%release', '($t$ at $Q=90\%$)'},'FontSize', 8,'interpreter','latex')
-    zticks([0 30 60 90 120 150 180])
-    axis([0 2, 0 10, 30 180])
+    zticks([0 60 120 180 240 300 360])
+    axis([0 2, 0 10, 0 360])
 
     %%%Drug release rate
     subplot(2,3,2)
@@ -268,9 +268,9 @@ if strcmp(plotting,'yes')
     caxis([minVal maxVal]); % Set shared color axis
     xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','rotation', 20,'FontSize', 8)
     ylabel("$\Delta R$ baseline multiplier",'interpreter','latex','rotation', -32,'FontSize', 8)
-    zlabel({'Days above 2 $\mu$g/day', 'release rate', '($t$ at $\dot{A}_{rel}=2$)'},'FontSize', 8,'interpreter','latex')
-    zticks([0 30 60 90 120 150 180])
-    axis([0 2, 0 10, 30 180])
+    zlabel({'Days above 1 $\mu$g/day', 'release rate', '($t$ at $\dot{A}_{rel}=1$)'},'FontSize', 8,'interpreter','latex')
+    zticks([0 60 120 180 240 300 360])
+    axis([0 2, 0 10, 0 360])
 
     subplot(2,3,3)
     surf(x1,y1,time_within_cumulrel)
@@ -279,8 +279,8 @@ if strcmp(plotting,'yes')
     xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','rotation', 20,'FontSize', 8)
     ylabel("$\Delta R$ baseline multiplier",'interpreter','latex','rotation', -32,'FontSize', 8)
     zlabel("Days to achieve thresholds",'FontSize', 8,'interpreter','latex')
-    zticks([0 30 60 90 120 150 180])
-    axis([0 2, 0 10, 30 180])
+    zticks([0 60 120 180 240 300 360])
+    axis([0 2, 0 10, 0 360])
 
     labelstring = {'a)', 'b)', 'c)', 'd)'};
     for v = 1:3
@@ -351,19 +351,19 @@ if strcmp(plotting,'yes')
     plot(x, lower_bound_1, '--', 'color', color4, 'LineWidth', 1); % Dashed purple line for lower bound
 
     xticks([0.25 0.5 0.75 1 1.25 1.5 1.75 2])
-    yticks([0 30 60 90 120 150 180])
+    yticks([0 60 120 180 240 300 360])
     xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','FontSize', 8)
     ylabel("Days to achieve thresholds",'FontSize', 8,'interpreter','latex')
     hold off
-    axis([0.25 2, 30 180])
+    axis([0.25 2, 0 360])
 
     %Overall legend
     legend(['$t_{Q=90\%}$: ' , num2str(y1(end)), '$\Delta R$'],...
         ['$t_{Q=90\%}$: ', num2str(y1(1)),'$\Delta R$'],...
-        ['$t_{\dot{A}_{rel}=2}$: ', num2str(y2(end)),'$\Delta R$'],...
-        ['$t_{\dot{A}_{rel}=2 \pm 0.2}: 10 \Delta R$'],...
-        ['$t_{\dot{A}_{rel}=2}$: ' , num2str(y2(1)), '$\Delta R$'],...
-        ['$t_{\dot{A}_{rel}=2 \pm 0.2}: 0.5 \Delta R$',],...
+        ['$t_{\dot{A}_{rel}=1}$: ', num2str(y2(end)),'$\Delta R$'],...
+        ['$t_{\dot{A}_{rel}=1 \pm 0.1}: 10 \Delta R$'],...
+        ['$t_{\dot{A}_{rel}=1}$: ' , num2str(y2(1)), '$\Delta R$'],...
+        ['$t_{\dot{A}_{rel}=1 \pm 0.1}: 0.5 \Delta R$',],...
         'interpreter','latex','Location','south','FontSize', 8)
     h = legend('Location','southoutside');
     p = [0.75 0.27 0.03 0.03];
@@ -375,3 +375,4 @@ end
 widthInches = 8;
 heightInches = 5;
 run('../ScriptForExportingImages.m')
+
