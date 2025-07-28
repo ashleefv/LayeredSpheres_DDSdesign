@@ -29,7 +29,7 @@ plotting = 'yes';
 R1_bl = (10.2e-4)/2; %Chitosan radius baseline (cm)
 R2_bl = (12.7e-4)/2; %Chitosan + PCL radius baseline (cm). If R1=R2, then no PCL present.
 
-R1_sizes = 0.4:0.1:2; %Multiples of chitosan radius to try
+R1_sizes = 0.2:0.1:2; %Multiples of chitosan radius to try
 R2_thick = 0.5:0.5:10; %Multiples of PCL thickness to try
 timevector = 0:1:200; % time to study in days
 loaded_drug = 1.03; %amount of drug loaded in mg
@@ -350,12 +350,12 @@ if strcmp(plotting,'yes')
     plot(x, upper_bound_1, '--', 'color', color4, 'LineWidth', 1); % Dashed purple line for upper bound
     plot(x, lower_bound_1, '--', 'color', color4, 'LineWidth', 1); % Dashed purple line for lower bound
 
-    xticks([0.4 0.6 0.8 1 1.2 1.4 1.6 1.8 2])
+    xticks([0.25 0.5 0.75 1 1.25 1.5 1.75 2])
     yticks([0 30 60 90 120 150 180])
     xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','FontSize', 8)
     ylabel("Days to achieve thresholds",'FontSize', 8,'interpreter','latex')
     hold off
-    axis([0.4 2, 30 180])
+    axis([0.25 2, 30 180])
 
     %Overall legend
     legend(['$t_{Q=90\%}$: ' , num2str(y1(end)), '$\Delta R$'],...
