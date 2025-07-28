@@ -57,9 +57,10 @@ timevector_plot = timevector/86400; %scaling to days
     caxis([minVal maxVal]); % Set shared color axis
     xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','rotation', 20,'FontSize', 8)
     ylabel("$\Delta R$ baseline multiplier",'interpreter','latex','rotation', -32,'FontSize', 8)
-    zlabel({'Days to achieve 90 \%release', '($t$ at $Q=90\%$)'},'FontSize', 8,'interpreter','latex')
+    zlabel({['Days to achieve ', num2str(cumulrel_threshold), '\% release'], ['($t$ at $Q=', num2str(cumulrel_threshold),'\%$)']},'FontSize', 8,'interpreter','latex')
     zticks([0 30 60 90 120 150 180])
     axis([0 2, 0 10, 0 180])
+    box on
 
     %%%Drug release rate
     subplot(2,3,2)
@@ -67,9 +68,10 @@ timevector_plot = timevector/86400; %scaling to days
     caxis([minVal maxVal]); % Set shared color axis
     xlabel("$R_{core}$ baseline multiplier",'interpreter','latex','rotation', 20,'FontSize', 8)
     ylabel("$\Delta R$ baseline multiplier",'interpreter','latex','rotation', -32,'FontSize', 8)
-    zlabel({'Days above 2 $\mu$g/day', 'release rate', '($t$ at $\dot{A}_{rel}=2$)'},'FontSize', 8,'interpreter','latex')
+    zlabel({['Days above ',num2str(relrate_threshold),' $\mu$g/day'], 'release rate', ['($t$ at $\dot{A}_{rel}=',num2str(relrate_threshold),'$)']},'FontSize', 8,'interpreter','latex')
     zticks([0 30 60 90 120 150 180])
     axis([0 2, 0 10, 0 180])
+    box on
 
     subplot(2,3,3)
     surf(x1,y1,time_within_cumulrel)
@@ -80,7 +82,8 @@ timevector_plot = timevector/86400; %scaling to days
     zlabel("Days to achieve thresholds",'FontSize', 8,'interpreter','latex')
     zticks([0 30 60 90 120 150 180])
     axis([0 2, 0 10, 0 180])
-    
+    box on
+
     labelstring = {'a)', 'b)', 'c)', 'd)'};
     for v = 1:3
         subplot(2,3,v)
@@ -155,14 +158,15 @@ timevector_plot = timevector/86400; %scaling to days
     ylabel("Days to achieve thresholds",'FontSize', 8,'interpreter','latex')
      hold off
     axis([0.25 2, 0 180])
+    box on
     
     %Overall legend
-    legend(['$t_{Q=90\%}$: ' , num2str(y1(end)), '$\Delta R$'],...
-        ['$t_{Q=90\%}$: ', num2str(y1(1)),'$\Delta R$'],...
-        ['$t_{\dot{A}_{rel}=2}$: ', num2str(y2(end)),'$\Delta R$'],...
-        ['$t_{\dot{A}_{rel}=2 \pm 0.2}: 10 \Delta R$'],...
-        ['$t_{\dot{A}_{rel}=2}$: ' , num2str(y2(1)), '$\Delta R$'],...
-        ['$t_{\dot{A}_{rel}=2 \pm 0.2}: 0.5 \Delta R$',],...
+    legend(['$t_{Q=',num2str(cumulrel_threshold),'\%}$: ' , num2str(y1(end)), '$\Delta R$'],...
+        ['$t_{Q=',num2str(cumulrel_threshold),'\%}$: ', num2str(y1(1)),'$\Delta R$'],...
+        ['$t_{\dot{A}_{rel}=',num2str(relrate_threshold),'}$: ', num2str(y2(end)),'$\Delta R$'],...
+        ['$t_{\dot{A}_{rel}=',num2str(relrate_threshold),' \pm ',num2str(relrate_threshold*tolerance),'}: 10 \Delta R$'],...
+        ['$t_{\dot{A}_{rel}=',num2str(relrate_threshold),'}$: ' , num2str(y2(1)), '$\Delta R$'],...
+        ['$t_{\dot{A}_{rel}=',num2str(relrate_threshold),' \pm ',num2str(relrate_threshold*tolerance),'}: 0.5 \Delta R$',],...
         'interpreter','latex','Location','south','FontSize', 8)
     h = legend('Location','southoutside');
     p = [0.75 0.27 0.03 0.03];
