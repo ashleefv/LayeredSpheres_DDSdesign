@@ -372,7 +372,7 @@ if strcmp(plotting,'yes')
     text(-0.08, 1.1, labelstring(4)', 'Units', 'normalized', 'FontWeight', 'bold','FontSize',8)
 end
 
-widthInches = 6.5;
+widthInches = 8;
 heightInches = 5;
 run('../ScriptForExportingImages.m')
 
