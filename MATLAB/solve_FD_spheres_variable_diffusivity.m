@@ -69,7 +69,8 @@ end
 Mdesired = 300; 
 if R2>R1 
     if R1>0% two layers
-        M = floor(R1/R2*Mdesired); %number of spatial intervals in Method of Lines for each layer
+        M = floor(R1/R2*Mdesired); %number of spatial intervals in Method of Lines for the inner core layer
+	% note the if ceil is used instead of floor, you can ensure that Minner+Mouter = Mdesired. With floor, there may be one fewer than Mdesired.
     else 
         M = Mdesired;
     end
@@ -107,7 +108,7 @@ if abs(dr1-0) < eps
 elseif abs(dr2-0) < eps
     r = rInner;
 else
-    r = [rInner, rOuter]; % combined r for inner core and outer shell replicating r1, non-dimensionalized
+    r = [rInner, rOuter]; % combined r for inner core and outer shell repeating r at interface, non-dimensionalized
 end
 Ntotal = length(r); % total numuber of points in two zones.
 
