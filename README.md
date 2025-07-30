@@ -16,7 +16,7 @@ E.A. Chacin Ruiz, S. L. Carpenter, K. E. Swindle-Reilly, and A. N. Ford Versypt,
 ## MATLAB Folder Scripts and Data
 * bilayer_numerical_diffn_paramest.m This file initializes the parameter estimation problem and calls the following code scripts to perform necessary functions.
 * FD_spheres_variable_diffusivity_two_spheres.m This file contains the finite difference discretization scheme for spheres.
-* license.txt This file contains the license for simps.m.
+* simps_license.txt This file contains the license for simps.m.
 * simps.m This file performs Simpson's numerical integration. [Source](https://www.mathworks.com/matlabcentral/fileexchange/25754-simpson-s-rule-for-numerical-integration)
 * solve_cumul_drug_rel.m This file runs the forward problem for the average and best results for the parameter estimation.
 * solve_FD_spheres_variable_diffusivity.m This file solves the PDE for Fickian diffusion within a radially symmetric sphere.
@@ -34,7 +34,7 @@ E.A. Chacin Ruiz, S. L. Carpenter, K. E. Swindle-Reilly, and A. N. Ford Versypt,
 * Bilayered_MPs_Prediction.xlsx This datasheet contains the cumulative drug release and drug release rate vs time data for the different core-shell designs.
 * Cumul_rel_and_rel_rate.m This script reads the information from Bilayered_MPs_Prediction.xlsx and makes two 6x4 figures with microparticles of different sizes. One figure shows the cumulative drug release and the other the drug release rate. Creates Figure 5 and Figure 6.
 * MPs_release_6_months.xlsx This datasheet contains the experimental data for cumulative drug release with time, and its standard deviation.
-* Multiple_Designs_Output.mlx This script allows to define a set of chitosan and PCL radii to test and the output is two mxn figures with microparticles of the different sizes chosen. One figure shows the cumulative drug release and the other the drug release rate.
+* [Multiple_Designs_Output.mlx](https://github.com/ashleefv/LayeredSpheres_DDSdesign/blob/master/MATLAB/Design_Characteristics/Multiple_Designs_Output.mlx) This script allows to define a set of chitosan and PCL radii to test and the output is two mxn figures with microparticles of the different sizes chosen. One figure shows the cumulative drug release and the other the drug release rate.
 * plotfill.m This scripts serves as a function to color the area that is within a predefined threshold.
 * Plot_3D_Surface_Results.m This script creates Figure 7.
 * Surface_Plot_3D.m The output from this script are 3 3D surface plots where one of the axis represents chitosan radii, another one PCL radii, and the last one depends on the plot. One plot is for days it takes to release a certain drug threshold, one plot is for days releasing a determined amount of drug, and the final plot is the intersection between the previous two plots.
