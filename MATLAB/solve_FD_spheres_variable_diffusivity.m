@@ -129,7 +129,12 @@ if nargin == 5
     params = varargin{1};
     burst = params(1)*burst_fixed;
     DInner = params(2)*DInner_fixed;
-    timevector = varargin{2}.*86400; %s
+    datatimevector = varargin{2}.*86400; %s
+    if datatimevector(1)~=0
+        timevector=[0;datatimevector];
+    else
+        timevector = datatimevector;
+    end
 end
 
 if nargin == 8
@@ -143,7 +148,12 @@ if nargin == 8
         DInner = params(3)*DInner_fixed;
         k = params(4)*k_fixed;
     end
-    timevector = varargin{2}.*86400; %s
+    datatimevector = varargin{2}.*86400; %s
+    if datatimevector(1)~=0
+        timevector=[0;datatimevector];
+    else
+        timevector = datatimevector;
+    end
 end
 
 
@@ -206,8 +216,13 @@ cumulrel_num = ones(size(time));
     end
 
 %Output cumulative drug release considering or not standard deviation
-if nargin == 5 || nargin == 7
-    output = cumulrel_num./stddev_wt;
+if nargin == 5 || nargin == 8
+    if datatimevector(1)~=0
+        cumulrel_num = cumulrel_num(2:end);
+        output = cumulrel_num./stddev_wt;
+    else
+        output = cumulrel_num./stddev_wt;
+    end 
 else
     output = cumulrel_num;
 
