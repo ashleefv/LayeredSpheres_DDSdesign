@@ -30,38 +30,48 @@ E.A. Chacin Ruiz, S. L. Carpenter, K. E. Swindle-Reilly, and A. N. Ford Versypt,
 * Plot_concentration_profiles.m This script reads the information from the datasheet and makes a figure composed of four concentration subplots. Creates Figure S2.
 * Concentration_comparison.xlsx This datasheet contains the concentration vs time data at four different microparticle position. At the center, at the middle of the core, at the interface, and at the middle of the shell.
 
+### Cumulative_Release_Verification Folder Scripts and Data
+* Analytical_Sln.m This script contains the implementation of the analytical solution for a loaded-core and empty shell microsphere based on the derivation by Lu and Chen J. Control. Rel. (1993).
+* Cumul_rel_comparison.xlsx This datasheet contains the cumulative release vs time data for two different set of parameters. The solutions stored are for the analytical solution, MATLAB, and COMSOL results.
+* Plot_cumul_rel.m This script reads the information from the datasheet and makes a figure composed of two subplots. Creates Figure S3.
+
 ### Design_Characteristics Folder Scripts and Data
-* 3D_Surface_data.mat This .mat file contains the data obtained from Surface_Plot_3D.m.
-* Bilayered_MPs_Prediction.xlsx This datasheet contains the cumulative drug release and drug release rate vs time data for the different core-shell designs.
+* 3D_Surface_data.mat This .mat file contains the data obtained from Surface_Plot_3D.m for a release rate threshold of 2 micrograms/day.
+* 3D_Surface_data_Supplementary.mat This .mat file contains the data obtained from Surface_Plot_3D.m for a release rate threshold of 1 microgram/day.
+* Bilayered_MPs_Prediction.xlsx This datasheet contains the cumulative drug release and drug release rate vs time data for the different core-shell designs for 180 days.
+* Bilayered_MPs_Prediction_Supplementary.xlsx This datasheet contains the cumulative drug release and drug release rate vs time data for the different core-shell designs for 360 days.
 * Cumul_rel_and_rel_rate.m This script reads the information from Bilayered_MPs_Prediction.xlsx and makes two 6x4 figures with microparticles of different sizes. One figure shows the cumulative drug release and the other the drug release rate. Creates Figure 5 and Figure 6.
+* Cumul_rel_and_rel_rate_Supplementary.m This script reads the information from Bilayered_MPs_Prediction_Supplementary.xlsx and makes two 6x4 figures with microparticles of different sizes. One figure shows the cumulative drug release and the other the drug release rate. Creates Figure S9 and Figure S10.
 * MPs_release_6_months.xlsx This datasheet contains the experimental data for cumulative drug release with time, and its standard deviation.
 * [Multiple_Designs_Output.mlx](https://github.com/ashleefv/LayeredSpheres_DDSdesign/blob/master/MATLAB/Design_Characteristics/Multiple_Designs_Output.mlx) This script allows to define a set of chitosan and PCL radii to test and the output is two figures with microparticles of the different sizes chosen. One figure shows the cumulative drug release, and the other the drug release rate.
 * plotfill.m This scripts serves as a function to color the area that is within a predefined threshold.
 * Plot_3D_Surface_Results.m This script creates Figure 7.
+* Plot_3D_Surface_Results.m This script creates Figure S11.
 * Surface_Plot_3D.m The output from this script are 3 3D surface plots where one of the axis represents chitosan radii, another one PCL radii, and the last one depends on the plot. One plot is for days it takes to release a certain drug threshold, one plot is for days releasing a determined amount of drug, and the final plot is the intersection between the previous two plots.
+* Surface_Plot_3D_Supplementary.m Similar to Surface_Plot_3D.m but it extents up to 360 days.
 
 ### Diffusion_Boundaries Folder Scripts
-* LowerAndUpperLimitsForDiffusion.m This script plots a figure showing the experimental data for BSA and Bevacizumab from Jiang et al. (2020), and the cumulative release curves assuming the same diffusion coefficients in both layers. Creates Figure S3.
+* LowerAndUpperLimitsForDiffusion.m This script plots a figure showing the experimental data for BSA and Bevacizumab from Jiang et al. (2020), and the cumulative release curves assuming the same diffusion coefficients in both layers. Creates Figure S4.
 
 ### Diffusion_Regimes Folder Scripts and Data
 * balanced_diffusion.mat Contains the concentration matrix (at different times and positions) for the case of DChi = DPCL.
 * core_limited_diffusion.mat Contains the concentration matrix (at different times and positions) for the case of DChi << DPCL.
-* Plot_Diffusion_Regimes.m This script plots the concentration profile with respect to position, at different time points, for the three regimes. Creates Figure S6.
+* Plot_Diffusion_Regimes.m This script plots the concentration profile with respect to position, at different time points, for the three regimes. Creates Figure S7.
 * shell_limited_diffusion.mat Contains the concentration matrix (at different times and positions) for the case of DChi >> DPCL.
 
 ### Parameter_Estimation_Results Folder Scripts and Data
 * InitialGuesses_100_Simulations.xlsx This datasheet contains the information used and results for the preliminary parameter estimation for both BSA and bevacizumab in MATLAB and COMSOL.
 * InitialGuesses_50_Simulations.xlsx This datasheet contains the information used and results for the final parameter estimation for both BSA and bevacizumab in MATLAB and COMSOL.
-* Plots_Bev_100_IC.m This script reads the preliminary parameter estimation results for bevacizumab from InitialGuesses_100_Simulations.xlsx and the output is a 2x2 plot comparing average and best results for COMSOL and MATLAB, and the error values obtained. Creates Figure S5.
+* Plots_Bev_100_IC.m This script reads the preliminary parameter estimation results for bevacizumab from InitialGuesses_100_Simulations.xlsx and the output is a 2x2 plot comparing average and best results for COMSOL and MATLAB, and the error values obtained. Creates Figure S6.
 * Plots_Bev_50_IC.m This script reads the final parameter estimation results for bevacizumab from InitialGuesses_50_Simulations.xlsx and the output is a 2x2 plot comparing average and best results for COMSOL and MATLAB, and the error values obtained. Creates Figure 4.
-* Plots_BSA_100_IC.m This script reads the preliminary parameter estimation results for bevacizumab from InitialGuesses_100_Simulations.xlsx and the output is a 2x2 plot comparing average and best results for COMSOL and MATLAB, and the error values obtained. Creates Figure S4.
+* Plots_BSA_100_IC.m This script reads the preliminary parameter estimation results for bevacizumab from InitialGuesses_100_Simulations.xlsx and the output is a 2x2 plot comparing average and best results for COMSOL and MATLAB, and the error values obtained. Creates Figure S5.
 * Plots_BSA_50_IC.m This script reads the final parameter estimation results for BSA from InitialGuesses_50_Simulations.xlsx and the output is a 2x2 plot comparing average and best results for COMSOL and MATLAB, and the error values obtained. Creates Figure 3.
 
 ### Sensitivity_and_Confidence_Interval Folder Scripts and Data
 * Combined_local_and_SOBOL.m This file plots a 3x2 figure where the top row is composed of local sensitivity analysis obtained from MATLAB and the bottom row is composed of SOBOL indices obtained from COMSOL. Creates Figure 2.
 * Confidence_Intervals.m This scripts calculates the sensitivity matrix S and uses it for the calculation of the confidence interval of the specified paramters.
 * Initial_Guesses_50_Simulations.xlsx This datasheet contains the information used and results for the final parameter estimation for both BSA and bevacizumab in MATLAB and COMSOL.
-* MOAT.m This script is used to plot the Morris one-at-a-time results obtained from COMSOL. Creates Figure S7.
+* MOAT.m This script is used to plot the Morris one-at-a-time results obtained from COMSOL. Creates Figure S8.
 * MOAT_Info_COMSOL.xlsx This datasheet contains the COMSOL results of the MOAT mean and MOAT standard deviation for the parameters under different drug release regimens.
 * MPs_release_6_months.xlsx This datasheet contains the experimental data for cumulative drug release with time, and its standard deviation.
 * Sensitivity_Analysis.m This scripts solves the local sensitivity analysis for a given perturbance percentage and plots the normalized change in cumulative drug release for the specified parameters.
