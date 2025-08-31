@@ -23,8 +23,8 @@ cuml_rel = "V3:V390";
 cuml_rel_rate_1_5 = xlsread(file_name,sheet_num,cuml_rel);
 
 %Cumulative release figure
-fig = figure(58);
-figname = 'figureS8';
+fig = figure(59);
+figname = 'figureS9';
 threshold = 90; % %
 Rcore_string = '$5.10 \mu m$ '; % string for the R_{core} value in microns
 DeltaR_string = '$1.25 \mu m$'; % string for the R_{shell} - R_{core} value in microns
@@ -351,8 +351,8 @@ rel_rate = "W3:W390";
 rel_rate_1_5 = xlsread(file_name,sheet_num,rel_rate);
 
 % Release rate figure
-fig = figure(59);
-figname = 'figureS9';
+fig = figure(510);
+figname = 'figureS10';
 co = orderedcolors("gem");
 color4 = co(4, :);
 threshold = 1; % micrograms/day
@@ -665,3 +665,4 @@ xlabel(han, 'Time (days)','FontName','Arial','FontSize',8);
 widthInches = 8;
 heightInches = 5;
 run('../ScriptForExportingImages.m')
+
