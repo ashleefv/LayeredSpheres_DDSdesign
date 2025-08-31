@@ -22,8 +22,8 @@ exp_rel = xlsread(filename,sheet,xlRange);
 xlRange = 'AA3:AA13';
 exp_stdv = xlsread(filename,sheet,xlRange);
 
-figure(55) %Figure S5
-figname = 'figureS5';
+figure(56) %Figure S6
+figname = 'figureS6';
 subplot(2,2,3)
 
 hold on
@@ -114,4 +114,5 @@ end
 
 widthInches = 5;
 heightInches = 5;
+
 run('../ScriptForExportingImages.m')
