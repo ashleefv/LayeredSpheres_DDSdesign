@@ -12,19 +12,21 @@ run('Design_Characteristics/Plot_3D_Surface_Results.m')
 
 %figure S2
 run('Concentration_Comparisons/Plot_concentration_profiles.m')
-%figure S3
-run('Diffusion_Boundaries/LowerAndUpperLimitsForDiffusions.m')
+%figure S3('Cumulative_Release_Verification/Plot_cumul_rel,m')
+run('Concentration_Comparisons/Plot_concentration_profiles.m')
 %figure S4
-run('Parameter_Estimation_Results/Plots_BSA_100_IC.m')
+run('Diffusion_Boundaries/LowerAndUpperLimitsForDiffusions.m')
 %figure S5
-run('Parameter_Estimation_Results/Plots_Bev_100_IC.m')
+run('Parameter_Estimation_Results/Plots_BSA_100_IC.m')
 %figure S6
-run('Diffusion_Regimes/Plot_Diffusion_Regimes.m')
+run('Parameter_Estimation_Results/Plots_Bev_100_IC.m')
 %figure S7
+run('Diffusion_Regimes/Plot_Diffusion_Regimes.m')
+%figure S8
 run('Sensitivity_and_Confidence_Interval/MOAT.m')
-%figure S8 and S9
+%figure S9 and S10
 run('Design_Characteristics/Cumul_rel_and_rel_rate_Supplementary.m')
-%figure S10
+%figure S11
 run('Design_Characteristics/Plot_3D_Surface_Results_Supplementary.m')
 
 % figure S1
