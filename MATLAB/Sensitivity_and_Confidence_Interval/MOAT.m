@@ -13,8 +13,8 @@ x = xlsread(file_name,sheet_num,xrange)';
 yrange = 'B2:B5';
 y = xlsread(file_name,sheet_num,yrange)';
 
-figure(57) %Figure S7
-figname = 'figureS7';
+figure(58) %Figure S8
+figname = 'figureS8';
 subplot(2,3,1)
 plot(x,y,'ko')
 xlabel('MOAT mean')
@@ -93,4 +93,5 @@ end
 
 widthInches = 6.5;
 heightInches = 5;
+
 run('../ScriptForExportingImages.m')
