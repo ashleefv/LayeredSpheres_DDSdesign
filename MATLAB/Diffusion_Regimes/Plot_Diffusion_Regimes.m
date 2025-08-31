@@ -4,8 +4,8 @@ clc
 %% Core-limited diffusion
 load("core_limited_diffusion.mat")
 
-figure(56) %Figure S6
-figname = 'figureS6';
+figure(57) %Figure S7
+figname = 'figureS7';
 
 %plot 7 different time steps after t = 0
 subplot(2,3,1)
@@ -63,4 +63,5 @@ set(h,'Position', p,'Units', 'normalized');
 
 widthInches = 6.5;
 heightInches = 5;
+
 run('../ScriptForExportingImages.m')
