@@ -78,8 +78,8 @@ E.A. Chacin Ruiz, S. L. Carpenter, K. E. Swindle-Reilly, and A. N. Ford Versypt,
 * solve_FD_spheres_sensitivity.m This file solves the PDE for Fickian diffusion within a radially symmetric sphere. It is an optimized version of "solve_FD_spheres_variable_diffusivity.m" reporposed for the type of input and output required for the sensitivity analysis.
 
 ## COMSOL Folder Scripts and Data
-* BSA_Experimental_data_MPs_Chitosan-PCL.csv This datasheet contains the experimental data for the cumulative release of BSA with time (in seconds)
-* Bevacizumab_Experimental_data_MPs_Chitosan-PCL.csv This datasheet contains the experimental data for the cumulative release of bevacizumab with time (in seconds)
+* BSA_Experimental_data_MPs_Chitosan-PCL.csv This datasheet contains the experimental data for the cumulative release of BSA with time (in seconds).
+* Bevacizumab_Experimental_data_MPs_Chitosan-PCL.csv This datasheet contains the experimental data for the cumulative release of bevacizumab with time (in seconds).
 * Optimization_MP_Chitosan_PCL.mph This file can be used to perform the parameter estimation for a given dataset.
 * Uncertainty_MP_Chitosan_PCL.mph This file can be used to perform sensitivity analysis (MOAT and SOBOL) for the model parameters.
 
