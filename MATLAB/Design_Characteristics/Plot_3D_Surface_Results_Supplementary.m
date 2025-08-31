@@ -14,8 +14,8 @@ timevector_plot = timevector/86400; %scaling to days
 
 
     % %%% Cumulative drug release
-    figure(510);
-    figname = 'figureS10';
+    figure(511);
+    figname = 'figureS11';
     subplot(2,3,1)
     time_within_cumulrel = zeros();
     x1 = zeros();
@@ -173,5 +173,6 @@ text(-0.08, 1.1, labelstring(4)', 'Units', 'normalized', 'FontWeight', 'bold','F
 widthInches = 8;
 heightInches = 5;
 run('../ScriptForExportingImages.m')
+
 
 
