@@ -643,7 +643,7 @@ axis(axisvector)
 grid on
 
 %Overall legend
-legend('Simulation results', [num2str(threshold) ' \mug/day threshold'],['Days within +/-' num2str(tolerance*100) '% of ' num2str(threshold) ' \mug/day threshold'],'FontName','Arial','FontSize',8)
+legend('Simulation results', [num2str(threshold) ' \mug/day threshold'],['Days within \pm' num2str(tolerance*100) '% of ' num2str(threshold) ' \mug/day threshold'],'FontName','Arial','FontSize',8)
 h = legend('Location','northoutside', 'Orientation', 'horizontal');
 p = [0.5 0.96 0.03 0.03];
 set(h,'Position', p,'Units', 'normalized');

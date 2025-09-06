@@ -44,7 +44,7 @@ xlabel("r/R_{shell}")
 ylabel("Concentration (a.u.)")
 axis([0 1 0 1])
 
-labelstring = {'a)', 'b)', 'c)'};
+labelstring = {'(a)', '(b)', '(c)'};
 for v = 1:3
     subplot(2,3,v)
     hold on

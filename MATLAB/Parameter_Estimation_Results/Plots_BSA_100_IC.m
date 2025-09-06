@@ -104,7 +104,7 @@ xlabel('Completed multi-start run','FontName','Arial','FontSize',8)
 legend('Simulation','Threshold','Location','northwest')
 axis([0,100,200,260])
 
-labelstring = {'a)', 'b)', 'c)', 'd)'};
+labelstring = {'(a)', '(b)', '(c)', '(d)'};
 for v = 1:4
     subplot(2,2,v)
     hold on

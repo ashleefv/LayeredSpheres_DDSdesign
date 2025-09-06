@@ -66,7 +66,7 @@ ylabel ('Concentration (a.u.)','FontName','Arial','fontsize',8)
 legend('MATLAB','COMSOL','FontName','Arial','fontsize',8)
 xlim([0 180])
 
-labelstring = {'a)', 'b)', 'c)', 'd)'};
+labelstring = {'(a)', '(b)', '(c)', '(d)'};
 for v = 1:4
     subplot(2,2,v)
     hold on

@@ -61,7 +61,7 @@ legend('MATLAB', 'COMSOL', 'Analytical', 'FontName','Arial','fontsize',8, 'locat
 xticks([0 50 100 150])
 xlim([0 180])
 
-labelstring = {'a)', 'b)'};
+labelstring = {'(a)', '(b)'};
 for v = 1:2
     subplot(1,2,v)
     hold on

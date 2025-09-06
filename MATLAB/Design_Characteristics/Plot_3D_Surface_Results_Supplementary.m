@@ -81,7 +81,7 @@ timevector_plot = timevector/86400; %scaling to days
     zticks([0 60 120 180 240 300 360])
     axis([0 2, 0 10, 0 360])
     
-    labelstring = {'a)', 'b)', 'c)', 'd)'};
+    labelstring = {'(a)', '(b)', '(c)', '(d)'};
     for v = 1:3
         subplot(2,3,v)
         hold on

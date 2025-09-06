@@ -82,7 +82,7 @@ text(x(4)+0.02,y(4),txt,'interpreter','latex','FontSize',8)
 axis([-0.05 0.6 -1e-4 0.00123])
 
 
-labelstring = {'a)', 'b)', 'c)'};
+labelstring = {'(a)', '(b)', '(c)'};
 for v = 1:3
     subplot(2,3,v)
     hold on
