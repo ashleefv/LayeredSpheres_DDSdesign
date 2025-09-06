@@ -84,7 +84,7 @@ timevector_plot = timevector/86400; %scaling to days
     axis([0 2, 0 10, 0 180])
     box on
 
-    labelstring = {'a)', 'b)', 'c)', 'd)'};
+    labelstring = {'(a)', '(b)', '(c)', '(d)'};
     for v = 1:3
         subplot(2,3,v)
         hold on

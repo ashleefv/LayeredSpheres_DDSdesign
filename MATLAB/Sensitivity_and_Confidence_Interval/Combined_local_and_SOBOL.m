@@ -87,7 +87,7 @@ h = legend('Location','northoutside', 'Orientation', 'horizontal');
 p = [0.5 0.51 0.03 0.03]; %Format: [left bottom width height] in normalized units
 set(h,'Position', p,'Units', 'normalized');
 
-labelstring = {'a)', 'b)', 'c)','d)','e)','f)'};
+labelstring = {'(a)', '(b)', '(c)','(d)','(e)','(f)'};
 for v = 1:6
     subplot(2,3,v)
     hold on

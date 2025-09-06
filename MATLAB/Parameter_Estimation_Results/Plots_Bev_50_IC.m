@@ -105,7 +105,7 @@ legend('Simulation','Threshold','Location','northwest')
 axis([0,50,420,520])
 
 
-labelstring = {'a)', 'b)', 'c)', 'd)'};
+labelstring = {'(a)', '(b)', '(c)', '(d)'};
 for v = 1:4
     subplot(2,2,v)
     hold on
