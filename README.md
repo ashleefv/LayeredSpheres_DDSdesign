@@ -12,7 +12,7 @@ Eduardo A. Chacin Ruiz, Samantha L. Carpenter, Katelyn E. Swindle-Reilly,  Ashle
 Contact: ashleefv@buffalo.edu
 
 ## Manuscript
-E.A. Chacin Ruiz, S. L. Carpenter, K. E. Swindle-Reilly, and A. N. Ford Versypt, Modeling and Design of Chitosan-PCL Bi-Layered Microspheres for Intravitreal Controlled Release, bioRxiv preprint, DOI: 10.1101/2024.01.11.575289 [Preprint](https://doi.org/10.1101/2024.01.11.575289v3)
+E.A. Chacin Ruiz, S. L. Carpenter, K. E. Swindle-Reilly, and A. N. Ford Versypt, Modeling and Design of Chitosan–PCL Bi-Layered Microspheres for Intravitreal Controlled Release, Pharmaceutics 2025, 17, 1174. [https://doi.org/10.3390/pharmaceutics17091174](https://doi.org/10.3390/pharmaceutics17091174)
 
 ## MATLAB Folder Scripts and Data
 * bilayer_numerical_diffn_paramest.m This file initializes the parameter estimation problem and calls the following code scripts to perform necessary functions.
@@ -21,6 +21,7 @@ E.A. Chacin Ruiz, S. L. Carpenter, K. E. Swindle-Reilly, and A. N. Ford Versypt,
 * simps.m This file performs Simpson's numerical integration. [Source](https://www.mathworks.com/matlabcentral/fileexchange/25754-simpson-s-rule-for-numerical-integration)
 * solve_cumul_drug_rel.m This file runs the forward problem for the average and best results for the parameter estimation.
 * solve_FD_spheres_variable_diffusivity.m This file solves the PDE for Fickian diffusion within a radially symmetric sphere.
+* CreatePubPlots.m creates all publication figures in the manuscript
 * CreateNodeFigure.m creates Figure S1
 * ScriptForExportingImages.m Converts and saves MATLAB plots to .pdf and .tiff, for the specified width and height size in inches.
 * two_spheres_data_form1_PCL_and_Chitosan.mat This data file contains the data for the experiments involving drug release from chitosan microparticles. A mat file must be loaded to perform the parameter estimation.
